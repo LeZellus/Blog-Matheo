@@ -1,8 +1,4 @@
 @import 'https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Montserrat:wght@300;400;500;600;700;800&display=swap';
-.icon {
-  height: 3rem;
-}
-
 /* http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 License: none (public domain) */
 html,
 body,
@@ -158,6 +154,16 @@ img {
 }
 .img-cv.opened:hover {
   cursor: zoom-out;
+}
+
+.icon {
+  height: 3rem;
+}
+.icon-forbidden {
+  color: #8d8d8d;
+}
+.icon-forbidden:hover {
+  cursor: not-allowed;
 }
 
 .button-primary {
@@ -596,14 +602,14 @@ footer .social-link {
   overflow: hidden;
 }
 
-.tr {
-  height: 5.6rem;
-}
-.tr:nth-child(even) {
+tbody .tr:nth-child(odd) {
   background-color: #f5f5f5;
 }
-.tr-menu {
+
+thead .tr {
+  background-color: #31e2c2;
   font-weight: 700;
+  color: #222;
 }
 
 .td {
@@ -612,6 +618,27 @@ footer .social-link {
 }
 .td a {
   color: #222;
+  text-decoration: none;
+}
+.td img {
+  width: 1.6rem;
+  vertical-align: middle;
+  padding: 0 2rem;
+}
+.td-title {
+  font-weight: 600;
+  max-width: 30rem;
+}
+.td-title a {
+  text-decoration: underline;
+}
+.td-actions {
+  max-width: 11.6rem;
+  text-align: right;
+}
+
+.tr {
+  height: 5.6rem;
 }
 
 html {
@@ -671,6 +698,7 @@ h2 {
   text-align: center;
   font-size: 3rem;
   font-weight: 700;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
 }
 
 h3 {
@@ -712,6 +740,14 @@ h3 {
   z-index: 9999;
 }
 
+.ai-center {
+  align-items: center;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
 @media screen and (max-width: 100rem) {
   .nav-burger {
     display: flex;
@@ -751,6 +787,11 @@ h3 {
 
   h1 {
     font-size: 4.5rem;
+  }
+
+  thead,
+.td-created {
+    display: none;
   }
 }
 @media screen and (max-width: 75rem) {
