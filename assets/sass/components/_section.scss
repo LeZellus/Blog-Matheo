@@ -25,12 +25,14 @@ section {
   &.edit-article,
   &.article,
   &.comments,
+  &.contact,
   &.profil {
     padding: 4rem;
     max-width: 100rem;
     width: calc(100% - 4rem);
     border-radius: 2rem;
     margin: 0 2rem;
+    justify-self: center;
   }
 
   &.profil {

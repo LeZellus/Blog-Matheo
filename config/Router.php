@@ -5,6 +5,7 @@ namespace App\config;
 use App\src\controller\ErrorController;
 use App\src\controller\FrontController;
 use App\src\controller\BackController;
+use App\src\controller\ContactController;
 use Exception;
 
 class Router
@@ -12,6 +13,7 @@ class Router
   private $frontController;
   private $errorController;
   private $backController;
+  private $contactController;
   private $request;
 
   public function __construct()
@@ -20,6 +22,7 @@ class Router
     $this->frontController = new FrontController();
     $this->errorController = new ErrorController();
     $this->backController = new BackController();
+    $this->contactController = new ContactController();
   }
 
   public function run()
@@ -60,6 +63,8 @@ class Router
           $this->backController->editArticle($this->request->getPost(), $this->request->getGet()->get('articleId'));
         } elseif ($route === 'removeArticle') {
           $this->backController->removeArticle($this->request->getGet()->get('articleId'));
+        } elseif ($route === 'contact') {
+          $this->contactController->contact($this->request->getPost());
         } else {
           $this->errorController->errorNotFound();
         }
