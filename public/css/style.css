@@ -524,12 +524,13 @@ section.articles, section.curriculum {
   padding: 0 4rem;
   margin: auto;
 }
-section.add-article, section.edit-article, section.article, section.comments, section.profil {
+section.add-article, section.edit-article, section.article, section.comments, section.contact, section.profil {
   padding: 4rem;
   max-width: 100rem;
   width: calc(100% - 4rem);
   border-radius: 2rem;
   margin: 0 2rem;
+  justify-self: center;
 }
 section.profil .grid {
   justify-content: center;

@@ -50,6 +50,35 @@
         </article>
     </section>
 
+    <h2 class="mt-4">Contact</h2>
+    <section class="grid grid-gap-40 contact bg-white">
+
+        <form method="post" id="form-login" action="/index.php?route=contact" class="grid grid-gap-20">
+            <div class="form-control grid grid-gap-10">
+                <label for="name" class="form-control-label">Nom, Prénom</label>
+                <input type="text" id="name" name="name" placeholder="Jack Pot">
+            </div>
+            <div class="form-control grid grid-gap-10">
+                <label for="email" class="form-control-label">Email</label>
+                <input type="email" id="email" name="email" placeholder="jackpot@exemple.fr">
+            </div>
+            <div class="form-control grid grid-gap-10">
+                <label for="message" class="form-control-label">Message</label>
+                <textarea id="message" name="message" placeholder="Je vous contacte pour ..."></textarea>
+            </div>
+
+            <div class="form-control">
+                <input type="submit" value="Connexion" class="button-primary" id="submit" name="submit" form="form-login">
+            </div>
+        </form>
+
+        <!-- <?#php if ($this->session->show('error_login')) { ?>
+            <p class="error-text">
+                <?#php echo $this->session->show('error_login'); ?>
+            </p>
+        <?#php } ?> -->
+    </section>
+
     <div class="img-cv" id="cv-img">
         <img src="uploads/cv_matheo_zeller.jpg" alt="CV de Mathéo">
 
