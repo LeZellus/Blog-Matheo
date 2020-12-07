@@ -21,6 +21,7 @@ abstract class Controller
 	protected $session;
 	protected $files;
 	protected $validation;
+	protected $PHPMailer;
 
 	public function __construct()
 	{

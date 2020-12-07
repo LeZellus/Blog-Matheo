@@ -771,6 +771,19 @@ h3 {
   margin: 0;
 }
 
+.session {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  background-color: #23DC3D;
+  border-radius: 5px;
+  color: #fff;
+  z-index: 100000;
+  padding: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
 @media screen and (max-width: 100rem) {
   .nav-burger {
     display: flex;
