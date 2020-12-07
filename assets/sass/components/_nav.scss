@@ -74,11 +74,11 @@ nav {
 
 .clicked {
   justify-content: center;
-  transition: .3s;
+  transition: 0.3s;
   transform: rotate(360deg);
 
   .nav-burger-bar:first-child {
     display: none;
-    transition: .3s;
+    transition: 0.3s;
   }
 }
