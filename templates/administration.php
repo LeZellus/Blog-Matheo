@@ -9,96 +9,112 @@
 
 <h1>Page d'administration</h1>
 
-<section class="grid grid-gap-40">
-    <h2>Articles</h2>
+<section class="grid grid-gap-40 jc-center mt-4">
     <a class="button-primary" href="/index.php?route=addArticle">Nouvel article</a>
 </section>
 
-<table>
-    <tr>
-        <td>Id</td>
-        <td>Titre</td>
-        <td>Description</td>
-        <td>Auteur</td>
-        <td>Date</td>
-        <td>Modification</td>
-        <td>Actions</td>
-    </tr>
-    <?php
-    foreach ($articles as $article) {
-    ?>
-        <tr>
-            <td><?= htmlspecialchars($article->getId()); ?></td>
-            <td><a href="/index.php?route=article&articleId=<?= htmlspecialchars($article->getId()); ?>"><?= htmlspecialchars($article->getTitle()); ?></a></td>
-            <td><?= htmlspecialchars($article->getChapo()); ?></td>
-            <td><?= htmlspecialchars($article->getAuthor()); ?></td>
-            <td>Créé le : <?= htmlspecialchars($article->getCreatedAt()); ?></td>
-            <td>Modifié le : <?= htmlspecialchars($article->getUpdatedAt()); ?></td>
-            <td>
-                <a href="/index.php?route=editArticle&articleId=<?= $article->getId(); ?>">Modifier</a>
-                <a href="/index.php?route=removeArticle&articleId=<?= $article->getId(); ?>">Supprimer</a>
-            </td>
-        </tr>
-    <?php
-    }
-    ?>
-</table>
+<section class="grid grid-gap-40 table-box">
+    <h2 class="mt-4">Articles :</h2>
+    <table class="table bg-white">
+        <thead>
+            <tr class="tr">
+                <td class="td">Titre</td>
+                <td class="td">Description</td>
+                <td class="td">Auteur</td>
+                <td class="td">Creation</td>
+                <td class="td">Modification</td>
+                <td class="td">Actions</td>
+            </tr>
+        </thead>
 
-<h2>Commentaires en attente</h2>
+        <tbody>
+            <?php foreach ($articles as $article) { ?>
+                <tr class="tr">
+                    <td class="td td-title"><a href="/index.php?route=article&articleId=<?= htmlspecialchars($article->getId()); ?>"><?= htmlspecialchars($article->getTitle()); ?></a></td>
+                    <td class="td td-desc"><?= htmlspecialchars($article->getChapo()); ?></td>
+                    <td class="td td-author"><?= htmlspecialchars($article->getAuthor()); ?></td>
+                    <td class="td td-created"><?= htmlspecialchars($article->getCreatedAt()); ?></td>
+                    <td class="td td-updated"><?= htmlspecialchars($article->getUpdatedAt()); ?></td>
+                    <td class="td td-actions">
+                        <a href="/index.php?route=editArticle&articleId=<?= $article->getId(); ?>">
+                            <img src="/icons/pencil.png" class="icon-edit" alt="Icone edition">
+                        </a>
+                        <a href="/index.php?route=removeArticle&articleId=<?= $article->getId(); ?>">
+                            <img src="/icons/cancel.png" class="icon-remove" alt="Icone supprimer">
+                        </a>
+                    </td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</section>
 
-<table>
-    <tr>
-        <td>Id</td>
-        <td>Pseudo</td>
-        <td>Message</td>
-        <td>Date</td>
-        <td>Actions</td>
-    </tr>
-    <?php
-    foreach ($comments as $comment) {
-    ?>
-        <tr>
-            <td><?= htmlspecialchars($comment->getId()); ?></td>
-            <td><?= htmlspecialchars($comment->getPseudo()); ?></td>
-            <td><?= substr(htmlspecialchars($comment->getContent()), 0, 150); ?></td>
-            <td>Créé le : <?= htmlspecialchars($comment->getCreatedAt()); ?></td>
-            <td>
-                <a href="/index.php?route=flagComment&commentId=<?= $comment->getId(); ?>">Valider</a>
-                <a href="/index.php?route=removeComment&commentId=<?= $comment->getId(); ?>">Supprimer</a>
-            </td>
-        </tr>
-    <?php
-    }
-    ?>
-</table>
+<?php if ($comments) { ?>
+    <section class="grid grid-gap-40 table-box">
+        <h2 class="mt-4">Commentaire(s) en attente :</h2>
+        <table class="table bg-white">
+            <thead>
+                <tr class="tr tr-menu">
+                    <td class="td">Pseudo</td>
+                    <td class="td">Message</td>
+                    <td class="td">Date</td>
+                    <td class="td">Actions</td>
+                </tr>
+            </thead>
 
-<h2>Utilisateurs</h2>
-<table>
-    <tr>
-        <td>Id</td>
-        <td>Pseudo</td>
-        <td>Date</td>
-        <td>Rôle</td>
-        <td>Actions</td>
-    </tr>
-    <?php foreach ($users as $user) { ?>
-        <tr>
-            <?php
-            echo '<pre>';
-            var_dump($user->getRole());
-            echo '</pre>'; 
-            ?>
-            <td><?= htmlspecialchars($user->getId()); ?></td>
-            <td><?= htmlspecialchars($user->getPseudo()); ?></td>
-            <td>Créé le : <?= htmlspecialchars($user->getCreatedAt()); ?></td>
-            <td><?= htmlspecialchars($user->getRole()); ?></td>
-            <td>
-                <?php if ($user->getRole() != '1') { ?>
-                    <a href="/index.php?route=deleteUser&userId=<?= $user->getId(); ?>">Supprimer</a>
-                <?php } else { ?>
-                    Suppression impossible
+            <tbody>
+                <?php foreach ($comments as $comment) { ?>
+                    <tr class="tr">
+                        <td class="td td-title"><?= htmlspecialchars($comment->getPseudo()); ?></td>
+                        <td class="td"><?= substr(htmlspecialchars($comment->getContent()), 0, 150); ?></td>
+                        <td class="td td-created"><?= htmlspecialchars($comment->getCreatedAt()); ?></td>
+                        <td class="td td-actions">
+                            <a href="/index.php?route=flagComment&commentId=<?= $comment->getId(); ?>">
+                                <img src="/icons/check.png" class="icon-check" alt="Icone valider">
+                            </a>
+                            <a href="/index.php?route=removeComment&commentId=<?= $comment->getId(); ?>">
+                                <img src="/icons/cancel.png" class="icon-remove" alt="Icone supprimer">
+                            </a>
+                        </td>
+                    </tr>
                 <?php } ?>
-            </td>
-        </tr>
-    <?php } ?>
-</table>
+            </tbody>
+        </table>
+    </section>
+<?php } ?>
+
+<section class="grid grid-gap-40 table-box">
+    <h2 class="mt-4">Utilisateurs</h2>
+    <table class="table bg-white">
+        <thead>
+            <tr class="tr tr-menu">
+                <td class="td">Pseudo</td>
+                <td class="td">Date</td>
+                <td class="td">Actions</td>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($users as $user) { ?>
+                <tr class="tr">
+                    <td class="td td-title"><?= htmlspecialchars($user->getPseudo()); ?></td>
+                    <td class="td">
+                        <?php if ($user->getRole() != '1') { ?>
+                            User
+                        <?php } else { ?>
+                            Admin
+                        <?php } ?>
+                    </td>
+                    <td class="td td-actions">
+                        <?php if ($user->getRole() != '1') { ?>
+                            <a href="/index.php?route=deleteUser&userId=<?= $user->getId(); ?>">
+                                <img src="/icons/cancel.png" class="icon-remove" alt="Icone supprimer">
+                            </a>
+                        <?php } else { ?>
+                            <img src="/icons/forbidden.png" class="icon-forbidden" alt="Icone impossible">
+                        <?php } ?>
+                    </td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</section>

@@ -1,12 +1,14 @@
 <?php $this->title = 'Article'; ?>
 
 <?= $this->session->show('edit_article'); ?>
+<?= $this->session->show('add_comment'); ?>
 
 <main class="grid grid-center grid-gap-40 m-h">
     <h1><?= htmlspecialchars($article->getTitle()); ?></h1>
     <section class="grid grid-gap-40 article bg-white">
         <div class="article-thumb" style="background-image: url('<?= $article->getThumb(); ?>')"></div>
-        <p class="article-content"><?= $article->getContent(); ?></p>
+
+        <div class="article-content"><?= $article->getContent(); ?></div>
         <span class="article-created">
             Créé le : <?= htmlspecialchars($article->getCreatedAt()); ?> par
             <span class="article-author"><?= htmlspecialchars($article->getAuthor()); ?></span>
@@ -23,19 +25,19 @@
     <section class="grid grid-gap-40 comments bg-white">
         <h2>Ajouter un commentaire :</h2>
         <?php include 'form_comment.php'; ?>
-        
+
         <h2>Commentaires :</h2>
         <?php foreach ($comments as $comment) { ?>
-            <section class="comment grid">
-                <img class="comment-thumb" src="/icons/user.svg" alt="Icone utilisateur">
-                <section class="grid grid-gap-10 comment-content">
-                    <?php if (htmlspecialchars($comment->getFlag()) === "1") { ?>
-                        <h3>Écrit par : <?= htmlspecialchars($comment->getPseudo()); ?></h3>
+            <?php if (htmlspecialchars($comment->getFlag()) === "1") { ?>
+                <section class="comment grid">
+                    <img class="comment-thumb" src="/icons/user.svg" alt="Icone utilisateur">
+                    <section class="grid grid-gap-10 comment-content">
+                        <h3><?= htmlspecialchars($comment->getPseudo()); ?></h3>
                         <?= htmlspecialchars($comment->getContent()); ?>
                         <p>Posté le <?= htmlspecialchars($comment->getCreatedAt()); ?></p>
-                    <?php } ?>
+                    </section>
                 </section>
-            </section>
+            <?php } ?>
         <?php } ?>
     </section>
 </main>

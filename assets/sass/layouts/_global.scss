@@ -54,12 +54,15 @@ h1 {
   margin: 0 auto;
   text-transform: uppercase;
   font-family: $secondary-font;
+  padding: 0 4rem;
+  line-height: 1.5;
 }
 
 h2 {
   text-align: center;
   font-size: 3rem;
   font-weight: 700;
+  text-shadow: $text-shadow;
 }
 
 h3 {
@@ -85,14 +88,10 @@ h3 {
   &-generic {
     color: $clr-text-generic-color;
     font-family: $secondary-font;
-    font-size: 3.5rem;
     text-align: center;
     margin: 0 2rem;
+    font-size: 1.6rem;
   }
-}
-
-img {
-  margin: auto;
 }
 
 .logo {
@@ -102,4 +101,50 @@ img {
   &-nav {
     max-width: 4rem;
   }
+}
+
+.trail {
+  position: absolute;
+  z-index: 9999;
+}
+
+.ai-center {
+  align-items: center;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+.matheo {
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+
+  span {
+    display: block;
+    font-family: $secondary-font;
+    font-size: 3rem;
+  }
+
+  .arrow {
+    margin: 0 2rem;
+  }
+
+  img {
+    margin: 0;
+  }
+}
+
+.session {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  background-color: $clr-session-bg;
+  border-radius: 5px;
+  color: $clr-session-color;
+  z-index: 100000;
+  padding: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
 }

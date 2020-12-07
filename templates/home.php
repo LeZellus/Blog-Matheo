@@ -9,7 +9,11 @@
 <main class="grid grid-center grid-gap-40 m-h">
     <h1>Xipel, le jeu tout en pixel.</h1>
     <div class="grid grid-gap-40">
-        <img src="/uploads/LeZellus.gif" alt="Logo Mathéo" class="logo">
+        <div class="matheo jc-center">
+            <img src="/uploads/LeZellus.gif" alt="Logo Mathéo" class="logo">
+            <img src="/icons/left-arrow.png" alt="Logo Flèche Gauche" class="arrow">
+            <span class="name">Mathéo Zeller</span>
+        </div>
         <p class="text-generic">“Goutez aux pixels technologiques...”</p>
     </div>
 
@@ -24,23 +28,67 @@
                     <section class="card-content grid grid-gap-20">
                         <h3 class="card-title"><?= htmlspecialchars($article->getTitle()); ?></h3>
                         <p class="card-desc"><?= htmlspecialchars($article->getChapo()); ?></p>
-                        <p class="card-date">Modifié le : <?= htmlspecialchars($article->getUpdatedAt()); ?></p>
                         <p>Écrit par :
                             <span class="card-author"><?= htmlspecialchars($article->getAuthor()); ?></span>
                         </p>
                     </section>
+                    <p class="card-date">Modifié le : <?= htmlspecialchars($article->getUpdatedAt()); ?></p>
                 </a>
             </article>
         <?php } ?>
     </section>
 
-    <section class="grid grid-gap-40 curriculum">
+    <section class="total-flex curriculum">
         <h2 class="mt-4">Mon parcours :</h2>
-        <article class="bg-white card">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga labore ipsum excepturi commodi ea saepe perferendis reprehenderit maxime temporibus consequuntur reiciendis accusamus perspiciatis suscipit distinctio, sint deleniti officiis dolorem sequi.</p>
-        </article>
-        <article class="bg-white card">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt omnis voluptatem nulla ea? Voluptas est alias ea eligendi modi incidunt architecto corporis quos voluptates, a odit blanditiis nobis, at ullam.</p>
+        <article class="card-careers">
+            <div class="bg-white card card-career total-flex" id="cv-wrapper">
+                Voir le CV
+            </div>
+            <a class="bg-white card card-career total-flex" href="uploads/cv_matheo_zeller.pdf" download>
+                Télécharger le CV
+            </a>
         </article>
     </section>
+
+    <h2 class="mt-4">Contact</h2>
+    <section class="grid grid-gap-40 contact bg-white">
+        <?= $this->session->show('contact'); ?>
+
+        <form method="post" id="form-login" action="/index.php?route=contact" class="grid grid-gap-20">
+            <div class="form-control grid grid-gap-10">
+                <label for="name" class="form-control-label">Nom, Prénom</label>
+                <input type="text" id="name" name="name" placeholder="Jack Pot">
+                <?= isset($errors['name']) ? $errors['name'] : ''; ?>
+            </div>
+            <div class="form-control grid grid-gap-10">
+                <label for="email" class="form-control-label">Email</label>
+                <input type="email" id="email" name="email" placeholder="jackpot@exemple.fr">
+                <?= isset($errors['email']) ? $errors['email'] : ''; ?>
+            </div>
+            <div class="form-control grid grid-gap-10">
+                <label for="message" class="form-control-label">Message</label>
+                <textarea id="message" name="message" placeholder="Je vous contacte pour ..."></textarea>
+                <?= isset($errors['message']) ? $errors['message'] : ''; ?>
+            </div>
+
+            <div class="form-control">
+                <input type="submit" value="Envoyer" class="button-primary" id="submit" name="submit" form="form-login">
+            </div>
+        </form>
+
+        <!-- <?#php if ($this->session->show('error_login')) { ?>
+            <p class="error-text">
+                <?#php echo $this->session->show('error_login'); ?>
+            </p>
+        <?#php } ?> -->
+    </section>
+
+    <div class="img-cv" id="cv-img">
+        <img src="uploads/cv_matheo_zeller.jpg" alt="CV de Mathéo">
+
+        <div class="close">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
 </main>

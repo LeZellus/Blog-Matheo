@@ -1,15 +1,21 @@
 @media screen and (max-width: 100rem) {
   .nav {
+    &-burger {
+      display: flex;
+    }
 
     &-link {
 
       &-items {
         position: fixed;
-        bottom: 0;
-        height: 8rem;
-        left: 0;
+        display: flex;
+        top: 0;
+        height: 100%;
+        left: 100%;
+        transition: .3s;
         width: 100%;
         background-color: $clr-nav-bg-mobile;
+        flex-direction: column;
 
         li {
           flex: 1;
@@ -19,6 +25,10 @@
       &-item {
         flex: 1;
         padding: 0;
+      }
+
+      &-items.show {
+        left: 0;
       }
     }
   }
@@ -36,7 +46,13 @@
     }
   }
 
-  body{
-    padding-bottom: 12rem;
+  h1 {
+    font-size: 4.5rem;
+  }
+
+  thead,
+  .td-created,
+  .td-updated {
+    display: none;
   }
 }
