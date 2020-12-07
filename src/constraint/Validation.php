@@ -26,6 +26,10 @@ class Validation
             $thumbValidation = new ThumbValidation();
             $errors = $thumbValidation->check($data);
             return $errors;
+        } elseif ($name === 'Contact') {
+            $contactValidation = new ContactValidation();
+            $errors = $contactValidation->check($data);
+            return $errors;
         }
     }
 }

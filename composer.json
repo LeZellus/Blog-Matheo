@@ -4,5 +4,8 @@
       "App\\config\\": "config/",
       "App\\src\\": "src/"
     }
+  },
+  "require": {
+    "phpmailer/phpmailer": "^6.2"
   }
 }
