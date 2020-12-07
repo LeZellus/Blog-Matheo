@@ -14,7 +14,7 @@
 </section>
 
 <section class="grid grid-gap-40 table-box">
-    <h2 class="mt-4">Articles :</h2>
+    <h2 class="mt-4">Articles</h2>
     <table class="table bg-white">
         <thead>
             <tr class="tr">
@@ -51,7 +51,7 @@
 
 <?php if ($comments) { ?>
     <section class="grid grid-gap-40 table-box">
-        <h2 class="mt-4">Commentaire(s) en attente :</h2>
+        <h2 class="mt-4">Commentaire(s) en attente</h2>
         <table class="table bg-white">
             <thead>
                 <tr class="tr tr-menu">
