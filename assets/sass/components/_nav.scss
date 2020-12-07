@@ -58,14 +58,14 @@ nav {
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-    transition: .3s;
+    transition: 0.3s;
 
     &:hover {
       cursor: pointer;
     }
 
     &-bar {
-      height: .4rem;
+      height: 0.4rem;
       width: 4rem;
       background-color: $palette-mine-shaft;
     }
