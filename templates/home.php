@@ -18,7 +18,7 @@
     </div>
 
     <section class="grid grid-gap-40 articles">
-        <h2 class="mt-4">Derniers articles :</h2>
+        <h2 class="mt-4">Derniers articles</h2>
         <?php foreach ($articles as $article) { ?>
             <article>
                 <a href="/index.php?route=article&articleId=<?= htmlspecialchars($article->getId()); ?>" class="grid card card-article bg-white">
@@ -39,7 +39,7 @@
     </section>
 
     <section class="total-flex curriculum">
-        <h2 class="mt-4">Mon parcours :</h2>
+        <h2 class="mt-4">Mon parcours</h2>
         <article class="card-careers">
             <div class="bg-white card card-career total-flex" id="cv-wrapper">
                 Voir le CV

@@ -23,10 +23,10 @@
     </section>
 
     <section class="grid grid-gap-40 comments bg-white">
-        <h2>Ajouter un commentaire :</h2>
+        <h2>Ajouter un commentaire</h2>
         <?php include 'form_comment.php'; ?>
 
-        <h2>Commentaires :</h2>
+        <h2>Commentaires</h2>
         <?php foreach ($comments as $comment) { ?>
             <?php if (htmlspecialchars($comment->getFlag()) === "1") { ?>
                 <section class="comment grid">
