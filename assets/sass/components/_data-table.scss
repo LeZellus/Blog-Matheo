@@ -1,7 +1,15 @@
 .table {
   margin: auto;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   overflow: hidden;
+}
+
+thead {
+  .tr {
+    background-color: $clr-thead-background;
+    font-weight: 700;
+    color: $clr-thead-color;
+  }
 }
 
 tbody {
@@ -13,31 +21,23 @@ tbody {
   }
 }
 
-thead {
-  .tr {
-    background-color: $clr-thead-background;
-    font-weight: 700;
-    color: $clr-thead-color;
-  }
-}
-
 .td {
   vertical-align: middle;
   padding: 0 2rem;
-
-  a {
-    color: $clr-td-color;
-    text-decoration: none;
-
-    &:last-child img{
-      padding: 0;
-    }
-  }
 
   img {
     width: 1.6rem;
     vertical-align: middle;
     padding-right: 2rem;
+  }
+
+  a {
+    color: $clr-td-color;
+    text-decoration: none;
+
+    &:last-child img {
+      padding: 0;
+    }
   }
 
   &-title {
