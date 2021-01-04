@@ -1,6 +1,6 @@
 <?php
 
-namespace App\src\DAO;
+namespace App\DAO;
 
 use App\config\Parameter;
 use App\src\model\User;
