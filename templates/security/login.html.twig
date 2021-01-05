@@ -1,47 +1,58 @@
-{# templates/security/login.html.twig #}
-
 {% extends 'base.html.twig' %}
 
-{% block title %}Connexion{% endblock %}
+{% block title %}Log in!{% endblock %}
 
 {% block content %}
-    <div class="container center">
-        <h1>Connexion</h1>
-        <form method="post" class="row">
-            {% if error %}
-                <div class="col s12 m6 l6 offset-m3 offset-l3">
-                    <span class="error">{{ error.messageKey|trans(error.messageData, 'security') }}</span>
+    <main class="total-flex m-h">
+
+        <h1 class="mb-4">Connexion</h1>
+        <section class="grid grid-gap-40 login bg-white">
+
+            <a href="{{ path('register') }}" class="button-secondary">Pas de compte ? Inscrivez-vous</a>
+            <form method="post" class="grid grid-gap-20" id="form-login">
+                {% if error %}
+                    <div class="col s12 m6 l6 offset-m3 offset-l3">
+                        <span class="error">{{ error.messageKey|trans(error.messageData, 'security') }}</span>
+                    </div>
+                {% endif %}
+
+                {% if app.user %}
+                    <div class="col s12 m6 l6 offset-m3 offset-l3">
+                        Tu es actuellement connecté en tant que {{ app.user.username }}, <a href="{{ path('logout') }}">Déconnecte-toi</a>
+                    </div>
+                {% endif %}
+
+                <div class="form-control grid grid-gap-10">
+                    <label for="pseudo" class="form-control-label">Email</label>
+                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="" required autofocus placeholder="Adresse email">
                 </div>
-            {% endif %}
-
-            {% if app.user %}
-                <div class="col s12 m6 l6 offset-m3 offset-l3">
-                    Tu es actuellement connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Déconnecte-toi</a>
+                <div class="form-control grid grid-gap-10">
+                    <label for="password" class="form-control-label">Mot de passe</label>
+                    <input type="password" name="password" id="inputPassword" class="form-control" required placeholder="Mot de passe">
                 </div>
-            {% endif %}
-            <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
-                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="" required autofocus placeholder="Adresse email">
-            </div>
-            <div class="input-field col s12 m6 l6 offset-m3 offset-l3">
-                <input type="password" name="password" id="inputPassword" class="form-control" required placeholder="Mot de passe">
-            </div>
 
-            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-            {#
-            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-            See https://symfony.com/doc/current/security/remember_me.html
+                {#
+                Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                See https://symfony.com/doc/current/security/remember_me.html
 
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" name="_remember_me"> Remember me
-                </label>
-            </div>
-            #}
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" name="_remember_me"> Remember me
+                    </label>
+                </div>
+                #}
+            </form>
 
-            <div class="input-field col s12">
-                <input type="submit" class="btn btn-primary" value="Me connecter">
-            </div>
-        </form>
-    </div>
+            <section class="grid grid-gap-20 button-box">
+                <input type="submit" value="Connexion" class="button-primary" id="submit" name="submit" form="form-login">
+                <a href="{{ path('home') }}" class="button-secondary">Accueil</a>
+            </section>
+        </section>
+    </main>
 {% endblock %}
+
+
+
+

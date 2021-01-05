@@ -54,14 +54,14 @@
 
             {% if app.user %}
                 <li>
-                    <a class="nav-link-item" href="/index.php?route=logout">
+                    <a class="nav-link-item" href="{{ path('logout') }}">
                         <img src="/icons/logout.svg" alt="Icon déconnexion" class="icon">
                         Déconnexion
                     </a>
                 </li>
             {% else %}
                 <li>
-                    <a class="nav-link-item" href="{{ path('login') }}">Connexion</a>
+                    <a class="nav-link-item" href="{{ path('app_login') }}">Connexion</a>
                 </li>
             {% endif %}
         </ul>

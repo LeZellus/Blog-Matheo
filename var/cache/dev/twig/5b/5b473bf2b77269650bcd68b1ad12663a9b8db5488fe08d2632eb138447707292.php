@@ -112,7 +112,10 @@ class __TwigTemplate_c17d1e7c531bdf24340acdc6a9e9c41a390a00695c390db07f31b6ae7ad
         if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 55, $this->source); })()), "user", [], "any", false, false, false, 55)) {
             // line 56
             echo "                <li>
-                    <a class=\"nav-link-item\" href=\"/index.php?route=logout\">
+                    <a class=\"nav-link-item\" href=\"";
+            // line 57
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
+            echo "\">
                         <img src=\"/icons/logout.svg\" alt=\"Icon déconnexion\" class=\"icon\">
                         Déconnexion
                     </a>
@@ -123,7 +126,7 @@ class __TwigTemplate_c17d1e7c531bdf24340acdc6a9e9c41a390a00695c390db07f31b6ae7ad
             echo "                <li>
                     <a class=\"nav-link-item\" href=\"";
             // line 64
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\">Connexion</a>
                 </li>
             ";
@@ -295,7 +298,7 @@ class __TwigTemplate_c17d1e7c531bdf24340acdc6a9e9c41a390a00695c390db07f31b6ae7ad
 
     public function getDebugInfo()
     {
-        return array (  271 => 114,  261 => 113,  243 => 76,  228 => 13,  218 => 12,  207 => 9,  197 => 8,  185 => 119,  183 => 113,  145 => 77,  143 => 76,  132 => 67,  126 => 64,  123 => 63,  114 => 56,  112 => 55,  106 => 52,  84 => 33,  75 => 27,  63 => 17,  61 => 12,  58 => 11,  56 => 8,  47 => 1,);
+        return array (  274 => 114,  264 => 113,  246 => 76,  231 => 13,  221 => 12,  210 => 9,  200 => 8,  188 => 119,  186 => 113,  148 => 77,  146 => 76,  135 => 67,  129 => 64,  126 => 63,  117 => 57,  114 => 56,  112 => 55,  106 => 52,  84 => 33,  75 => 27,  63 => 17,  61 => 12,  58 => 11,  56 => 8,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -356,14 +359,14 @@ class __TwigTemplate_c17d1e7c531bdf24340acdc6a9e9c41a390a00695c390db07f31b6ae7ad
 
             {% if app.user %}
                 <li>
-                    <a class=\"nav-link-item\" href=\"/index.php?route=logout\">
+                    <a class=\"nav-link-item\" href=\"{{ path('logout') }}\">
                         <img src=\"/icons/logout.svg\" alt=\"Icon déconnexion\" class=\"icon\">
                         Déconnexion
                     </a>
                 </li>
             {% else %}
                 <li>
-                    <a class=\"nav-link-item\" href=\"{{ path('login') }}\">Connexion</a>
+                    <a class=\"nav-link-item\" href=\"{{ path('app_login') }}\">Connexion</a>
                 </li>
             {% endif %}
         </ul>

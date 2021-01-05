@@ -1373,9 +1373,12 @@
       <argument type="abstract">manifest url</argument>
       <argument type="service" id="http_client"/>
     </service>
+    <service id="assets._version__default" class="Symfony\Component\Asset\VersionStrategy\JsonManifestVersionStrategy">
+      <argument>/Applications/MAMP/htdocs/Blog-Matheo/public/build/manifest.json</argument>
+    </service>
     <service id="assets._default_package" class="Symfony\Component\Asset\PathPackage">
       <argument></argument>
-      <argument type="service" id="assets.empty_version_strategy"/>
+      <argument type="service" id="assets._version__default"/>
       <argument type="service" id="assets.context"/>
     </service>
     <service id="mailer.mailer" class="Symfony\Component\Mailer\Mailer">
@@ -2785,7 +2788,9 @@
     </service>
     <service id="routing.loader" class="Symfony\Bundle\FrameworkBundle\Routing\DelegatingLoader" public="true">
       <argument type="service" id="routing.resolver"/>
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="utf8">true</argument>
+      </argument>
       <argument type="collection"/>
     </service>
     <service id="router.default" class="Symfony\Bundle\FrameworkBundle\Routing\Router">

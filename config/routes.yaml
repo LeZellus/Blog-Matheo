@@ -7,7 +7,7 @@ register:
 blog:
   path: /blog
   controller: App\Controller\BlogController::index
-login:
+app_login:
   path: /login
   controller: App\Controller\SecurityController::login
 logout:
