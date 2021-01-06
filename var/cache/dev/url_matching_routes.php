@@ -18,6 +18,7 @@ return [
         '/blog' => [[['_route' => 'blog', '_controller' => 'App\\Controller\\BlogController::index'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
+        '/ajouter' => [[['_route' => 'ajouter', '_controller' => 'App\\Controller\\BlogController::add'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

@@ -13,3 +13,6 @@ app_login:
 logout:
   path: /logout
   controller: App\Controller\SecurityController::logout
+ajouter:
+  path: /ajouter
+  controller: App\Controller\BlogController::add

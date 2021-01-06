@@ -9,7 +9,7 @@
         <h1 class="mb-4">Inscription</h1>
 
         <section class="grid grid-gap-40 register bg-white">
-            <a href="{{ path('login') }}" class="button-secondary">Déjà inscrit? Connectez-vous</a>
+            <a href="{{ path('app_login') }}" class="button-secondary">Déjà inscrit? Connectez-vous</a>
 
             {{ form_start(registrationForm, {'vars': {'attr': {'class': 'grid grid-gap-20', 'id':'form-register'}}}) }}
             <div class="form-control grid grid-gap-10">

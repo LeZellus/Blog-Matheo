@@ -106,10 +106,10 @@ document.addEventListener("DOMContentLoaded", function () {
     /*******************************************************/
     /***************LAUNCH FUNCTIONS ON LOAD****************/
     /*******************************************************/
-    window.onload = function () {
-        this.addEventListener("mousemove", mouseMonitor);
-        menu.addEventListener("click", toggle);
-        cvWrapper.addEventListener("click", popupManage);
-        cvImg.addEventListener("click", popupManage);
-    };
+    // window.onload = function () {
+    //     this.addEventListener("mousemove", mouseMonitor);
+    //     menu.addEventListener("click", toggle);
+    //     cvWrapper.addEventListener("click", popupManage);
+    //     cvImg.addEventListener("click", popupManage);
+    // };
 });

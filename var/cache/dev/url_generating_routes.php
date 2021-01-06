@@ -20,4 +20,5 @@ return [
     'blog' => [[], ['_controller' => 'App\\Controller\\BlogController::index'], [], [['text', '/blog']], [], []],
     'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],
     'logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],
+    'ajouter' => [[], ['_controller' => 'App\\Controller\\BlogController::add'], [], [['text', '/ajouter']], [], []],
 ];
