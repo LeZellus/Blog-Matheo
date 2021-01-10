@@ -2,10 +2,11 @@ document.addEventListener("DOMContentLoaded", function () {
     let articleContent = document.getElementsByClassName(
         "article-content-input"
     );
+
     let menu = document.getElementById("nav-burger");
     let navLinks = document.getElementById("nav-link-items");
 
-    let cvWrapper = document.getElementById("cv-wrapper");
+    //let cvWrapper = document.getElementById("cv-wrapper");
     let cvImg = document.getElementById("cv-img");
 
     /*******************************************************/
@@ -99,6 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //Toggle menu function
     let toggle = function () {
+        console.log('hello');
         navLinks.classList.toggle("show");
         menu.classList.toggle("clicked");
     };
@@ -106,10 +108,10 @@ document.addEventListener("DOMContentLoaded", function () {
     /*******************************************************/
     /***************LAUNCH FUNCTIONS ON LOAD****************/
     /*******************************************************/
-    // window.onload = function () {
-    //     this.addEventListener("mousemove", mouseMonitor);
-    //     menu.addEventListener("click", toggle);
-    //     cvWrapper.addEventListener("click", popupManage);
-    //     cvImg.addEventListener("click", popupManage);
-    // };
+    window.onload = function () {
+        this.addEventListener("mousemove", mouseMonitor);
+        menu.addEventListener("click", toggle);
+        //cvWrapper.addEventListener("click", popupManage);
+        //cvImg.addEventListener("click", popupManage);
+    };
 });

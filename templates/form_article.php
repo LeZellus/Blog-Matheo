@@ -12,28 +12,22 @@ $thumb = isset($article) && $article->getThumb() ? htmlspecialchars($article->ge
   <div class="form-control grid grid-gap-10">
     <label for="title" class="form-control-label">Titre</label>
     <input type="text" id="title" name="title" value="<?= $title; ?>">
-    <?= isset($errors['title']) ? $errors['title'] : ''; ?>
   </div>
 
   <div class="form-control grid grid-gap-10">
     <label for="chapo" class="form-control-label">Description</label>
     <input type="text" id="chapo" name="chapo" value="<?= $chapo; ?>">
-    <?= isset($errors['chapo']) ? $errors['chapo'] : ''; ?>
   </div>
 
   <div class="form-control grid grid-gap-10">
     <label for="article-content" class="form-control-label">Contenu</label>
     <textarea id="article-content" class="article-content-input" name=" content"><?= $content; ?></textarea>
-    <?= isset($errors['content']) ? $errors['content'] : ''; ?>
   </div>
 
   <?php if ($submit == "Ajouter") { ?>
     <div class="form-control grid grid-gap-10">
       <label for="thumb" class="form-control-label">Image d'entête</label>
       <input type="file" id="thumb" name="thumb" value="<?= $thumb; ?>">
-      <?= isset($errorsThumb['name']) ? $errorsThumb['name'] : ''; ?>
-      <?= isset($errorsThumb['size']) ? $errorsThumb['size'] : ''; ?>
-      <?= isset($errorsThumb['type']) ? $errorsThumb['type'] : ''; ?>
     </div>
   <?php } ?>
 </form>

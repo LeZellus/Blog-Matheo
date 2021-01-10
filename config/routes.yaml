@@ -8,11 +8,27 @@ blog:
   path: /blog
   controller: App\Controller\BlogController::index
 app_login:
-  path: /login
+  path: /connexion
   controller: App\Controller\SecurityController::login
 logout:
   path: /logout
   controller: App\Controller\SecurityController::logout
-ajouter:
+blog_add:
   path: /ajouter
   controller: App\Controller\BlogController::add
+blog_edit:
+  path: /edit/{id}
+  controller: App\Controller\BlogController::edit
+  requirements:
+    id: '\d+'
+blog_show:
+  path: /show/{id}
+  controller: App\Controller\BlogController::show
+blog_remove:
+  path: /remove/{id}
+  controller: App\Controller\BlogController::remove
+  requirements:
+    id: '\d+'
+admin:
+  path: /admin
+  controller: App\Controller\BlogController::admin
