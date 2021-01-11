@@ -56,9 +56,20 @@ class Article
      */
     private $categories;
 
+    /**
+     * @ORM\Column(type="string", length=80)
+     */
+    private $Chapo;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="articles")
+     */
+    private $comments;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -158,6 +169,48 @@ class Article
     public function removeCategory(Category $category): self
     {
         $this->categories->removeElement($category);
+
+        return $this;
+    }
+
+    public function getChapo(): ?string
+    {
+        return $this->Chapo;
+    }
+
+    public function setChapo(string $Chapo): self
+    {
+        $this->Chapo = $Chapo;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Comment[]
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comment $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setArticles($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): self
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getArticles() === $this) {
+                $comment->setArticles(null);
+            }
+        }
 
         return $this;
     }

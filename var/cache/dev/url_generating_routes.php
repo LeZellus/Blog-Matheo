@@ -18,7 +18,11 @@ return [
     'home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/']], [], []],
     'register' => [[], ['_controller' => 'App\\Controller\\RegistrationController::register'], [], [['text', '/inscription']], [], []],
     'blog' => [[], ['_controller' => 'App\\Controller\\BlogController::index'], [], [['text', '/blog']], [], []],
-    'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],
+    'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/connexion']], [], []],
     'logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],
-    'ajouter' => [[], ['_controller' => 'App\\Controller\\BlogController::add'], [], [['text', '/ajouter']], [], []],
+    'blog_add' => [[], ['_controller' => 'App\\Controller\\BlogController::add'], [], [['text', '/ajouter']], [], []],
+    'blog_edit' => [['id'], ['_controller' => 'App\\Controller\\BlogController::edit'], ['id' => '\\d+'], [['variable', '/', '\\d+', 'id', true], ['text', '/edit']], [], []],
+    'blog_show' => [['id'], ['_controller' => 'App\\Controller\\BlogController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/show']], [], []],
+    'blog_remove' => [['id'], ['_controller' => 'App\\Controller\\BlogController::remove'], ['id' => '\\d+'], [['variable', '/', '\\d+', 'id', true], ['text', '/remove']], [], []],
+    'admin' => [[], ['_controller' => 'App\\Controller\\BlogController::admin'], [], [['text', '/admin']], [], []],
 ];

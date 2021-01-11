@@ -1,0 +1,46 @@
+{# templates/blog/show.html.twig #}
+
+{% extends "base.html.twig" %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+    <main class="grid grid-center grid-gap-40 m-h">
+        <h1>{{ article.title }}</h1>
+        <section class="grid grid-gap-40 article bg-white">
+            <div class="article-thumb" style="background-image: url('{{ asset('uploads/' ~ article.thumb) }}')"></div>
+
+            <div class="article-content">{{ article.content }}</div>
+            <span>{% for category in article.categories %} {{ category.label }}{{ loop.last ? '' : ',' }} {% endfor %}</span>
+            <span class="article-created">
+                Créé le : {{ article.publishedAt|date('d/m/Y') }} par
+                <span class="article-author">A FAIRE</span>
+            </span>
+            <span class="article-updated">Modifié le : {{ article.updatedAt|date('d/m/Y') }}</span>
+            {% if app.user %}
+                <section class="grid grid-gap-20 button-box">
+                    <a href="{{ path('blog_edit', {'id': article.id}) }}" class="button-secondary">Modifier</a>
+                    <a href="{{ path('blog_remove', {'id': article.id}) }}"
+                       class="button-secondary">Supprimer</a>
+                </section>
+            {% endif %}
+        </section>
+
+        <section class="grid grid-gap-40 comments bg-white">
+            <h2>Ajouter un commentaire</h2>
+            <?php include 'form_comment.php'; ?>
+
+            <h2>Commentaires</h2>
+            <section class="comment grid">
+                {% for comment in comments %}
+                    <img class="comment-thumb" src="/icons/user.svg" alt="Icone utilisateur">
+                    <section class="grid grid-gap-10 comment-content">
+                        <h3></h3>
+                        <p>{{ comment.content }}</p>
+                        <p>{{ comment.createdAt }}</p>
+                    </section>
+                {% endfor %}
+            </section>
+        </section>
+    </main>
+{% endblock %}

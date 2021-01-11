@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Comment;
 use App\Form\ArticleType;
+use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -61,6 +63,86 @@ class BlogController extends AbstractController
 
         return $this->render('blog/add.html.twig', [
             'form' => $form->createView()
+        ]);
+    }
+
+    public function edit(Article $article, Request $request)
+    {
+        $oldPicture = $article->getThumb();
+
+        $form = $this->createForm(ArticleType::class, $article);
+        $form->handleRequest($request);
+
+
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $article->setUpdatedAt(new \DateTime());
+
+            if ($article->getIsPublished()) {
+                $article->setPublishedAt(new \DateTime());
+            }
+
+            if ($article->getThumb() !== null && $article->getThumb() !== $oldPicture) {
+                $file = $form->get('thumb')->getData();
+                $fileName = uniqid(). '.' .$file->guessExtension();
+
+                try {
+                    $file->move(
+                        $this->getParameter('images_directory'),
+                        $fileName
+                    );
+                } catch (FileException $e) {
+                    return new Response($e->getMessage());
+                }
+
+                $article->setThumb($fileName);
+            } else {
+                $article->setThumb($oldPicture);
+            }
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($article);
+            $em->flush();
+
+            return new Response('L\'article a bien été modifier.');
+        }
+
+        return $this->render('blog/edit.html.twig', [
+            'article' => $article,
+            'form' => $form->createView()
+        ]);
+    }
+
+    public function show(Article $article)
+    {
+        $comments = $this->getDoctrine()->getRepository(Comment::class);
+        return $this->render('blog/show.html.twig', [
+            'article' => $article,
+            'comments' => $comments
+        ]);
+    }
+
+    public function remove(Article $article)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($article);
+        $em->flush();
+
+        return $this->redirectToRoute('admin');
+    }
+
+    public function admin()
+    {
+        $articles = $this->getDoctrine()->getRepository(Article::class)->findBy(
+            [],
+            ['updatedAt' => 'DESC']
+        );
+
+        $users = $this->getDoctrine()->getRepository(User::class)->findAll();
+
+        return $this->render('admin/index.html.twig', [
+            'articles' => $articles,
+            'users' => $users
         ]);
     }
 }

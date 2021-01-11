@@ -1,30 +1,33 @@
-{{ form_start(form, {'attr': {'class': 'row'}}) }}
-<div class="input-field col s12 m12 l12">
+{{ form_start(form, {'attr': {'class': 'grid grid-gap-20', 'id': 'form-add-article'}}) }}
+<div class="form-control grid grid-gap-10">
+    {{ form_label(form.thumb, 'Image', {'label_attr': {'class': 'form-control-label'}}) }}
     {{ form_widget(form.thumb) }}
 </div>
 
-<div class="input-field col s12 m6 l6">
+<div class="form-control grid grid-gap-10">
+    {{ form_label(form.title, 'Titre', {'label_attr': {'class': 'form-control-label'}}) }}
     {{ form_widget(form.title, {'attr': {'placeholder': 'Titre de l\'article'}}) }}
-    {{ form_label(form.title) }}
     <span class="error">{{ form_errors(form.title) }}</span>
 </div>
 
-<div class="input-field col s12 m6 l6">
+<div class="form-control grid grid-gap-10">
+    {{ form_label(form.categories, 'Catégories', {'label_attr': {'class': 'form-control-label'}}) }}
     {{ form_widget(form.categories) }}
-    {{ form_label(form.categories) }}
 </div>
 
-<div class="input-field col s12 m12 l12">
-    {{ form_widget(form.content, {'attr': {'class': 'materialize-textarea', 'placeholder': 'Le contenu de l\'article'}}) }}
+<div class="form-control grid grid-gap-10">
+    {{ form_label(form.chapo, 'Description', {'label_attr': {'class': 'form-control-label'}}) }}
+    {{ form_widget(form.chapo, {'attr': {'placeholder': 'Description'}}) }}
 </div>
 
-<div class="input-field col s12 m12 l12">
-    <p>
-        <label>
-            {{ form_widget(form.isPublished, {'attr': {'class': 'filled-in'}}) }}
-            <span>Publier</span>
-        </label>
-    </p>
+<div class="form-control grid grid-gap-10">
+    {{ form_label(form.content, 'Contenu', {'label_attr': {'class': 'form-control-label'}}) }}
+    {{ form_widget(form.content, {'attr': {'class': 'article-content-input', 'placeholder': 'Contenu', 'id': 'article-content'}}) }}
+</div>
+
+<div class="form-control grid grid-gap-10">
+        {{ form_label(form.isPublished, 'Publié', {'label_attr': {'class': 'form-control-label'}}) }}
+        {{ form_widget(form.isPublished) }}
 </div>
 
 <div class="input-field col s12 m12 l12">
