@@ -23,25 +23,25 @@
 <body>
 <header>
     <nav>
-        <a href="{{ path('home') }}">
+        <a href="{{ path('app_home') }}">
             <img src="{{ asset('uploads/LeZellus.gif') }}" alt="Logo de Mathéo en Pixel art" class="logo logo-nav">
         </a>
 
         <ul class="nav-link-items" id="nav-link-items">
             <li>
-                <a class="nav-link-item" href="{{ path('blog') }}">
+                <a class="nav-link-item" href="{{ path('app_blog') }}">
                     Blog
                 </a>
             </li>
             <li>
-                <a class="nav-link-item" href="{{ path('admin') }}">
+                <a class="nav-link-item" href="{{ path('app_admin') }}">
                     <img src="/icons/cog.svg" alt="Icon engrenage" class="icon">
                     Admin
                 </a>
             </li>
 
             <li>
-                <a class="nav-link-item" href="/index.php?route=profile">
+                <a class="nav-link-item" href="{{ path('app_profil') }}">
                     <img src="/icons/user.svg" alt="Icon utilisateur" class="icon">
                     Profil
                 </a>
@@ -49,7 +49,7 @@
 
             {% if app.user %}
                 <li>
-                    <a class="nav-link-item" href="{{ path('logout') }}">
+                    <a class="nav-link-item" href="{{ path('app_logout') }}">
                         <img src="/icons/logout.svg" alt="Icon déconnexion" class="icon">
                         Déconnexion
                     </a>
@@ -60,7 +60,7 @@
                 </li>
 
                 <li>
-                    <a class="nav-link-item" href="{{ path('register') }}">Inscription</a>
+                    <a class="nav-link-item" href="{{ path('app_register') }}">Inscription</a>
                 </li>
             {% endif %}
         </ul>
