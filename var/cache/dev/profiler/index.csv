@@ -381,3 +381,15 @@ bf0047,::1,GET,http://localhost:3000/remove/5,1610119722,,302
 dfeba2,::1,GET,http://localhost:3000/admin,1610119724,,200
 df9f0a,::1,GET,http://localhost:3000/admin,1610119776,,200
 ca559c,::1,GET,http://localhost:3000/admin,1610119781,,200
+43deea,::1,GET,http://localhost:3000/,1610959291,1ba9e5,500
+1ba9e5,::1,GET,http://localhost:3000/,1610959291,,500
+e708c8,::1,GET,http://localhost:3000/,1610959332,,200
+377718,::1,GET,http://localhost:3000/connexion,1610959338,,200
+9c0fa2,::1,POST,http://localhost:3000/connexion,1610959347,,302
+65d07b,::1,GET,http://localhost:3000/connexion,1610959347,,200
+c09cd0,::1,GET,http://localhost:3000/inscription,1610959351,,200
+a7eb4c,::1,POST,http://localhost:3000/inscription,1610959364,,302
+e10ea6,::1,GET,http://localhost:3000/blog,1610959364,,200
+147548,::1,GET,http://localhost:3000/connexion,1610959367,,200
+349a11,::1,POST,http://localhost:3000/connexion,1610959371,,302
+4c35d7,::1,GET,http://localhost:3000/,1610959371,,200

@@ -2,38 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3d03873-2573-4dc0-b171-8ed1054acd6b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/uploads/5ff84ccb4fbc7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/5ff84cea4aa14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/5ff850fab703f.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/5ff852af433c3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/5ff852b30e15f.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/5ff857c585e6d.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/5ff8656005080.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/5ff866267094b.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/5ff8668e18c32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/5ff86cd6e7256.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/CommentsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Comment.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/CommentRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/blog/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/blog/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/comments/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BlogController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Article.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ArticleType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ArticleType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blog/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/add.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blog/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form_article.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form_article.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/includes/article_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/article_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ContactController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.php.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.preload.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.preload.php" afterDir="false" />
@@ -41,10 +11,6 @@
       <change beforePath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.xml.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainerCompiler.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainerCompiler.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/url_generating_routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/url_generating_routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/url_generating_routes.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/url_generating_routes.php.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/url_matching_routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/url_matching_routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/url_matching_routes.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/url_matching_routes.php.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/log/dev.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -188,7 +154,13 @@
       <workItem from="1609859712025" duration="2661000" />
       <workItem from="1609938945205" duration="3685000" />
       <workItem from="1609946885492" duration="4809000" />
-      <workItem from="1610354015814" duration="205000" />
+      <workItem from="1610354015814" duration="1536000" />
+      <workItem from="1610360167720" duration="5000" />
+      <workItem from="1610361598281" duration="942000" />
+      <workItem from="1610372449999" duration="4000" />
+      <workItem from="1610372542622" duration="679000" />
+      <workItem from="1610376879310" duration="1600000" />
+      <workItem from="1610959052950" duration="1040000" />
     </task>
     <servers />
   </component>
@@ -214,11 +186,6 @@
           <url>file://$PROJECT_DIR$/src/Controller/RegistrationController.php</url>
           <line>4</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/Controller/ContactController.php</url>
-          <line>6</line>
-          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
