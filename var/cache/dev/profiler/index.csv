@@ -440,3 +440,5 @@ ad5e70,::1,POST,http://localhost:3000/,1610963748,,500
 04818d,::1,GET,http://localhost:3000/,1610964728,,200
 4b68a6,::1,GET,http://localhost:3000/ajouter,1610964742,,200
 e419ae,::1,GET,http://localhost:3000/,1610964778,,200
+3b7989,::1,GET,http://localhost:3000/,1610965162,,200
+a86521,::1,GET,http://localhost:3000/index.php/?route=profile,1610965167,,200
