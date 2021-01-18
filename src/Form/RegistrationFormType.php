@@ -21,6 +21,8 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class)
+            ->add('firstname', TextType::class)
+            ->add('lastname', TextType::class)
             ->add('username', TextType::class, [
                 'constraints' => [
                     new Length([

@@ -19,8 +19,9 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('thumb', FileType::class, [
+                'required' => false,
                 'data_class' => null,
-                'required' => false
+                'empty_data' => ''
             ])
             ->add('title', TextType::class)
             ->add('chapo', TextType::class)
