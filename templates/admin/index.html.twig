@@ -19,7 +19,6 @@
             <tr class="tr">
                 <td class="td">Titre</td>
                 <td class="td">Description</td>
-                <td class="td">Auteur</td>
                 <td class="td">Creation</td>
                 <td class="td">Modification</td>
                 <td class="td">Actions</td>
@@ -29,20 +28,15 @@
             <tbody>
             {% for article in articles %}
                 <tr class="tr">
-                    <td class="td td-title"><a
-                                href="/index.php?route=article&articleId=<?= htmlspecialchars($article->getId()); ?>">{{ article.title }}</a>
+                    <td class="td td-title">
+                        <a href="{{ path('blog_show', {'id': article.id}) }}">{{ article.title }}</a>
                     </td>
                     <td class="td td-desc">{{ article.chapo }}</td>
-                    <td class="td td-author">{{ article.author }}</td>
-                    <td class="td td-created">{{ article.createdAt }}</td>
-                    <td class="td td-updated">{{ article.updatedAt }}</td>
+                    <td class="td td-created">{{ article.publishedAt|date("m/d/Y") }}</td>
+                    <td class="td td-updated">{{ article.updatedAt|date("m/d/Y") }}</td>
                     <td class="td td-actions">
-                        <a href="/index.php?route=editArticle&articleId=<?= $article->getId(); ?>">
-                            <img src="/icons/pencil.png" class="icon-edit" alt="Icone edition">
-                        </a>
-                        <a href="/index.php?route=removeArticle&articleId=<?= $article->getId(); ?>">
-                            <img src="/icons/cancel.png" class="icon-remove" alt="Icone supprimer">
-                        </a>
+                        <a href="{{ path('blog_edit', {'id': article.id}) }}">Editer</a>
+                        <a href="{{ path('blog_remove', {'id': article.id}) }}">Supprimer</a>
                     </td>
                 </tr>
             {% endfor %}
@@ -97,22 +91,16 @@
             <tbody>
             {% for user in users %}
                 <tr class="tr">
-                    <td class="td td-title"><?= htmlspecialchars($user->getPseudo()); ?></td>
+                    <td class="td td-title">{{ user.username }}</td>
                     <td class="td">
-                        <?php if ($user->getRole() != '1') { ?>
+                        {% if is_granted('ROLE_ADMIN') %}
                         User
-                        <?php } else { ?>
+                        {% else %}
                         Admin
-                        <?php } ?>
+                        {% endif %}
                     </td>
                     <td class="td td-actions">
-                        <?php if ($user->getRole() != '1') { ?>
-                        <a href="{{ path('blog_edit', {'id': user.id}) }}">
-                            <img src="/icons/cancel.png" class="icon-remove" alt="Icone supprimer">
-                        </a>
-                        <?php } else { ?>
-                        <img src="/icons/forbidden.png" class="icon-forbidden" alt="Icone impossible">
-                        <?php } ?>
+                        <a href="{{ path('blog_edit', {'id': user.id}) }}">Supprimer</a>
                     </td>
                 </tr>
             {% endfor %}
