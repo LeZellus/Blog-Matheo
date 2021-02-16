@@ -8,7 +8,7 @@
         <h1 class="mb-4">Connexion</h1>
         <section class="grid grid-gap-40 login bg-white">
 
-            <a href="{{ path('register') }}" class="button-secondary">Pas de compte ? Inscrivez-vous</a>
+            <a href="{{ path('app_register') }}" class="button-secondary">Pas de compte ? Inscrivez-vous</a>
             <form method="post" class="grid grid-gap-20" id="form-login">
                 {% if error %}
                     <div class="col s12 m6 l6 offset-m3 offset-l3">
@@ -47,7 +47,7 @@
 
             <section class="grid grid-gap-20 button-box">
                 <input type="submit" value="Connexion" class="button-primary" id="submit" name="submit" form="form-login">
-                <a href="{{ path('home') }}" class="button-secondary">Accueil</a>
+                <a href="{{ path('app_home') }}" class="button-secondary">Accueil</a>
             </section>
         </section>
     </main>

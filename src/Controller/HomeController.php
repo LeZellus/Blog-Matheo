@@ -35,7 +35,7 @@ class HomeController extends AbstractController
 
             $this->addFlash('success', 'Your message has been sent');
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('app_home');
         }
 
         $articles = $this->getDoctrine()->getRepository(Article::class)->findBy(
