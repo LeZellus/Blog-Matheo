@@ -6,6 +6,8 @@ use App\Entity\Article;
 use App\Entity\Comment;
 use App\Form\ArticleType;
 use App\Entity\User;
+use App\Repository\ArticleRepository;
+use App\Repository\CommentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
@@ -131,17 +133,20 @@ class BlogController extends AbstractController
         return $this->redirectToRoute('admin');
     }
 
-    public function admin(): Response
+    public function admin(ArticleRepository $articleRepository, CommentRepository $commentRepository): Response
     {
-        $articles = $this->getDoctrine()->getRepository(Article::class)->findBy(
+        $articles = $articleRepository->findBy(
             [],
             ['updatedAt' => 'DESC']
         );
+
+        $comments = $commentRepository->findAll();
 
         $users = $this->getDoctrine()->getRepository(User::class)->findAll();
 
         return $this->render('admin/index.html.twig', [
             'articles' => $articles,
+            'comments' => $comments,
             'users' => $users
         ]);
     }
