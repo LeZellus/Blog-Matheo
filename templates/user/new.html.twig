@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New User{% endblock %}
+
+{% block content %}
+    <main class="grid grid-center grid-gap-40 m-h">
+        <h1>Créer nouvel utilisateur</h1>
+
+        <section class="grid grid-gap-40 add-article bg-white">
+            {{ include('user/_form.html.twig') }}
+        </section>
+
+        <section class="grid grid-gap-40 jc-center">
+            <a href="{{ path('admin_users') }}" class="button-primary">Retour à la liste</a>
+        </section>
+    </main>
+{% endblock %}

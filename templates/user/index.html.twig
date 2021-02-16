@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Utilisateurs{% endblock %}
+
+{% block content %}
+    <h1>Administration <br> Utilisateurs</h1>
+
+    <section class="grid grid-gap-40 jc-center mt-4">
+        <a href="{{ path('admin_user_add') }}" class="button-primary">Ajouter utilisateur</a>
+    </section>
+
+    <section class="grid grid-gap-40 table-box">
+        <h2 class="mt-4">Utilisateurs</h2>
+        <table class="table bg-white">
+            <thead>
+            <tr class="tr">
+                <th class="td">Email</th>
+                <th class="td">Rôles</th>
+                <th class="td">Pseudo</th>
+                <th class="td">Nom</th>
+                <th class="td">Prénom</th>
+                <th class="td">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr class="tr">
+                    <td class="td">{{ user.email }}</td>
+                    <td class="td">{{ user.roles ? user.roles|json_encode : '' }}</td>
+                    <td class="td">{{ user.username }}</td>
+                    <td class="td">{{ user.lastname }}</td>
+                    <td class="td">{{ user.firstname }}</td>
+                    <td class="td">
+                        <a href="{{ path('admin_user_show', {'id': user.id}) }}">Voir</a>
+                        <a href="{{ path('admin_user_edit', {'id': user.id}) }}">Editer</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr class="tr">
+                    <td colspan="8">Aucun utilisateur</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

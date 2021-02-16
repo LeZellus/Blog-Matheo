@@ -33,24 +33,26 @@
                     Blog
                 </a>
             </li>
-            <li>
-                <a class="nav-link-item" href="{{ path('app_admin') }}">
-                    <img src="/icons/cog.svg" alt="Icon engrenage" class="icon">
-                    Admin
-                </a>
-            </li>
 
-            <li>
-                <a class="nav-link-item" href="{{ path('app_profil') }}">
-                    <img src="/icons/user.svg" alt="Icon utilisateur" class="icon">
-                    Profil
-                </a>
-            </li>
+            {% if is_granted('ROLE_ADMIN') %}
+                <li>
+                    <a class="nav-link-item" href="{{ path('app_admin') }}">
+                        <img src="{{ asset("uploads/icons/cog.svg") }}" alt="Icon engrenage" class="icon">
+                        Admin
+                    </a>
+                </li>
+            {% endif %}
 
             {% if app.user %}
                 <li>
+                    <a class="nav-link-item" href="{{ path('app_profil') }}">
+                        <img src="{{ asset("uploads/icons/user.svg") }}" alt="Icon utilisateur" class="icon">
+                        Profil
+                    </a>
+                </li>
+                <li>
                     <a class="nav-link-item" href="{{ path('app_logout') }}">
-                        <img src="/icons/logout.svg" alt="Icon déconnexion" class="icon">
+                        <img src="{{ asset("uploads/icons/logout.svg") }}" alt="Icon déconnexion" class="icon">
                         Déconnexion
                     </a>
                 </li>
@@ -78,32 +80,32 @@
     <ul class="grid social-links mt-4">
         <li>
             <a class="grid social-link total-flex" href="https://www.facebook.com/matheo.zeller/">
-                <img class="icon" src="/icons/facebook.png" alt="Icone de facebook">
+                <img class="icon" src="{{ asset("uploads/icons/facebook.png") }}" alt="Icone de facebook">
             </a>
         </li>
         <li>
             <a class="grid social-link total-flex" href="https://twitter.com/LeZelller">
-                <img class="icon" src="/icons/twitter.png" alt="Icone de twitter">
+                <img class="icon" src="{{ asset("uploads/icons/twitter.png") }}" alt="Icone de twitter">
             </a>
         </li>
         <li>
             <a class="grid social-link total-flex" href="https://www.linkedin.com/in/zellrdesign/">
-                <img class="icon" src="/icons/linkedin.png" alt="Icone de Linkedin">
+                <img class="icon" src="{{ asset("uploads/icons/linkedin.png") }}" alt="Icone de Linkedin">
             </a>
         </li>
         <li>
             <a class="grid social-link total-flex" href="https://github.com/LeZellus">
-                <img class="icon" src="/icons/github.png" alt="Icone de github">
+                <img class="icon" src="{{ asset("uploads/icons/github.png") }}" alt="Icone de github">
             </a>
         </li>
         <li>
             <a class="grid social-link total-flex" href="https://www.instagram.com/lepixzel">
-                <img class="icon" src="/icons/instagram.png" alt="Icone d'instagram">
+                <img class="icon" src="{{ asset("uploads/icons/instagram.png") }}" alt="Icone d'instagram">
             </a>
         </li>
         <li>
             <a class="grid social-link total-flex" href="https://www.instagram.com/lepixzel">
-                <img class="icon" src="/icons/cog.svg" alt="Icone engrenage">
+                <img class="icon" src="{{ asset("uploads/icons/cog.svg") }}" alt="Icone engrenage">
             </a>
         </li>
     </ul>
@@ -113,7 +115,7 @@
     {{ encore_entry_script_tags('app') }}
     <script src="https://cdn.tiny.cloud/1/rw78ruup0slekfnq1t5ss54hodg15wxelpobpasmfafy88c3/tinymce/5/tinymce.min.js"
             referrerpolicy="origin"></script>
-    <script src="/js/app.js"></script>
+    <!-- <script src="/js/app.js"></script> -->
 {% endblock %}
 </body>
 </html>
