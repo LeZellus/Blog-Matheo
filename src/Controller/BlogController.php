@@ -104,7 +104,7 @@ class BlogController extends AbstractController
             $em->persist($article);
             $em->flush();
 
-            return new Response('L\'article a bien été modifier.');
+            return new Response('L\'article a bien été modifié');
         }
 
         return $this->render('blog/edit.html.twig', [

@@ -11,30 +11,41 @@
         <section class="grid grid-gap-40 register bg-white">
             <a href="{{ path('app_login') }}" class="button-secondary">Déjà inscrit? Connectez-vous</a>
 
-            {{ form_start(registrationForm, {'vars': {'attr': {'class': 'grid grid-gap-20', 'id':'form-register'}}}) }}
+            {{ form_start(registrationForm, {'attr': {'class': 'grid grid-gap-20', 'id':'form-register'}}) }}
             <div class="form-control grid grid-gap-10">
+                {{ form_label(registrationForm.email, 'Email', {'label_attr': {'class': 'form-control-label'}}) }}
                 {{ form_widget(registrationForm.email, {'attr': {'placeholder': 'Adresse email'}}) }}
                 <span class="error">{{ form_errors(registrationForm.email) }}</span>
             </div>
 
             <div class="form-control grid grid-gap-10">
+                {{ form_label(registrationForm.firstname, 'Prénom', {'label_attr': {'class': 'form-control-label'}}) }}
+                {{ form_widget(registrationForm.firstname, {'attr': {'placeholder': 'Prénom'}}) }}
+                <span class="error">{{ form_errors(registrationForm.firstname) }}</span>
+            </div>
+
+            <div class="form-control grid grid-gap-10">
+                {{ form_label(registrationForm.lastname, 'Nom', {'label_attr': {'class': 'form-control-label'}}) }}
+                {{ form_widget(registrationForm.lastname, {'attr': {'placeholder': 'Nom'}}) }}
+                <span class="error">{{ form_errors(registrationForm.lastname) }}</span>
+            </div>
+
+            <div class="form-control grid grid-gap-10">
+                {{ form_label(registrationForm.username, 'Pseudo', {'label_attr': {'class': 'form-control-label'}}) }}
                 {{ form_widget(registrationForm.username, {'attr': {'placeholder': 'Nom d\'utilisateur'}}) }}
                 <span class="error">{{ form_errors(registrationForm.username) }}</span>
             </div>
 
             <div class="form-control grid grid-gap-10">
+                {{ form_label(registrationForm.plainPassword, 'Mot de passe', {'label_attr': {'class': 'form-control-label'}}) }}
                 {{ form_widget(registrationForm.plainPassword, {'attr': {'placeholder': 'Mot de passe'}}) }}
                 <span class="error">{{ form_errors(registrationForm.plainPassword) }}</span>
-            </div>
-
-            <div>
-                <input type="submit" name="" class="btn btn-primary" value="M'inscrire">
             </div>
             {{ form_end(registrationForm) }}
 
             <div class="grid grid-gap-20 button-box">
                 <input type="submit" value="Inscription" id="submit" class="button-primary" form="form-register" name="submit">
-                <a href="{{ path('home') }}" class="button-secondary">Retour à l'accueil</a>
+                <a href="{{ path('app_home') }}" class="button-secondary">Retour à l'accueil</a>
             </div>
 
         </section>

@@ -2,6 +2,7 @@
 <div class="form-control grid grid-gap-10">
     {{ form_label(form.thumb, 'Image', {'label_attr': {'class': 'form-control-label'}}) }}
     {{ form_widget(form.thumb) }}
+    <span class="error">{{ form_errors(form.thumb) }}</span>
 </div>
 
 <div class="form-control grid grid-gap-10">
@@ -18,11 +19,13 @@
 <div class="form-control grid grid-gap-10">
     {{ form_label(form.chapo, 'Description', {'label_attr': {'class': 'form-control-label'}}) }}
     {{ form_widget(form.chapo, {'attr': {'placeholder': 'Description'}}) }}
+    <span class="error">{{ form_errors(form.chapo) }}</span>
 </div>
 
 <div class="form-control grid grid-gap-10">
     {{ form_label(form.content, 'Contenu', {'label_attr': {'class': 'form-control-label'}}) }}
     {{ form_widget(form.content, {'attr': {'class': 'article-content-input', 'placeholder': 'Contenu', 'id': 'article-content'}}) }}
+    <span class="error">{{ form_errors(form.content) }}</span>
 </div>
 
 <div class="form-control grid grid-gap-10">

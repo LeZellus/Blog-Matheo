@@ -19,12 +19,7 @@ body {
 }
 
 .error {
-  border: 1px solid $clr-error;
-
-  &-text {
-    color: $clr-error-color;
-    text-align: center;
-  }
+  color: $clr-error-color;
 }
 
 .bg-white {

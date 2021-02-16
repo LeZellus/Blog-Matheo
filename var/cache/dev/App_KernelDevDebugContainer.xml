@@ -314,13 +314,6 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.route_loader"/>
     </service>
-    <service id="App\Controller\BackController" class="App\Controller\BackController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.5nX7ca3.App\Controller\BackController"/>
-      </call>
-    </service>
     <service id="App\Controller\BlogController" class="App\Controller\BlogController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -335,32 +328,18 @@
         <argument type="service" id=".service_locator.5nX7ca3.App\Controller\CommentsController"/>
       </call>
     </service>
-    <service id="App\Controller\ContactController" class="App\Controller\ContactController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.5nX7ca3.App\Controller\ContactController"/>
-      </call>
-    </service>
-    <service id="App\Controller\ErrorController" class="App\Controller\ErrorController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.5nX7ca3.App\Controller\ErrorController"/>
-      </call>
-    </service>
-    <service id="App\Controller\FrontController" class="App\Controller\FrontController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.5nX7ca3.App\Controller\FrontController"/>
-      </call>
-    </service>
     <service id="App\Controller\HomeController" class="App\Controller\HomeController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.5nX7ca3.App\Controller\HomeController"/>
+      </call>
+    </service>
+    <service id="App\Controller\ProfilController" class="App\Controller\ProfilController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.5nX7ca3.App\Controller\ProfilController"/>
       </call>
     </service>
     <service id="App\Controller\RegistrationController" class="App\Controller\RegistrationController" public="true" autowire="true" autoconfigure="true">
@@ -377,10 +356,10 @@
         <argument type="service" id=".service_locator.5nX7ca3.App\Controller\SecurityController"/>
       </call>
     </service>
-    <service id="App\DAO\ArticleDAO" class="App\DAO\ArticleDAO" autowire="true" autoconfigure="true"/>
-    <service id="App\DAO\CommentDAO" class="App\DAO\CommentDAO" autowire="true" autoconfigure="true"/>
-    <service id="App\DAO\UserDAO" class="App\DAO\UserDAO" autowire="true" autoconfigure="true"/>
     <service id="App\Form\ArticleType" class="App\Form\ArticleType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\ContactType" class="App\Form\ContactType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true">
@@ -408,14 +387,6 @@
       <argument type="service" id="security.csrf.token_manager"/>
       <argument type="service" id="security.user_password_encoder.generic"/>
     </service>
-    <service id="App\constraint\ArticleValidation" class="App\constraint\ArticleValidation" autowire="true" autoconfigure="true"/>
-    <service id="App\constraint\CommentValidation" class="App\constraint\CommentValidation" autowire="true" autoconfigure="true"/>
-    <service id="App\constraint\Constraint" class="App\constraint\Constraint" autowire="true" autoconfigure="true"/>
-    <service id="App\constraint\ContactValidation" class="App\constraint\ContactValidation" autowire="true" autoconfigure="true"/>
-    <service id="App\constraint\ThumbValidation" class="App\constraint\ThumbValidation" autowire="true" autoconfigure="true"/>
-    <service id="App\constraint\UpdatePasswordValidation" class="App\constraint\UpdatePasswordValidation" autowire="true" autoconfigure="true"/>
-    <service id="App\constraint\UserValidation" class="App\constraint\UserValidation" autowire="true" autoconfigure="true"/>
-    <service id="App\constraint\Validation" class="App\constraint\Validation" autowire="true" autoconfigure="true"/>
     <service id="App\model\Article" class="App\model\Article" autowire="true" autoconfigure="true"/>
     <service id="App\model\Comment" class="App\model\Comment" autowire="true" autoconfigure="true"/>
     <service id="App\model\User" class="App\model\User" autowire="true" autoconfigure="true"/>
@@ -901,6 +872,7 @@
       </argument>
       <argument type="collection">
         <argument>App\Form\ArticleType</argument>
+        <argument>App\Form\ContactType</argument>
         <argument>App\Form\RegistrationFormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
@@ -1261,7 +1233,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.zI0x4of"/>
+      <argument type="service" id=".service_locator.AUa_iX1"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -4837,27 +4809,18 @@
       <argument>^/((index|app(_[\w]+)?)\.php/)?_wdt</argument>
       <argument type="service" id="web_profiler.csp.handler"/>
     </service>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\BackController" class="App\Controller\BackController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\BackController" class="App\Controller\BackController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\BackController" class="App\Controller\BackController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\BlogController" class="App\Controller\BlogController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\BlogController" class="App\Controller\BlogController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\BlogController" class="App\Controller\BlogController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CommentsController" class="App\Controller\CommentsController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CommentsController" class="App\Controller\CommentsController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\CommentsController" class="App\Controller\CommentsController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ContactController" class="App\Controller\ContactController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ContactController" class="App\Controller\ContactController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\ContactController" class="App\Controller\ContactController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ErrorController" class="App\Controller\ErrorController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ErrorController" class="App\Controller\ErrorController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\ErrorController" class="App\Controller\ErrorController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\FrontController" class="App\Controller\FrontController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\FrontController" class="App\Controller\FrontController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\FrontController" class="App\Controller\FrontController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ProfilController" class="App\Controller\ProfilController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ProfilController" class="App\Controller\ProfilController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ProfilController" class="App\Controller\ProfilController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\RegistrationController" class="App\Controller\RegistrationController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -4866,6 +4829,8 @@
     <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ArticleType" class="App\Form\ArticleType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ArticleType" class="App\Form\ArticleType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ContactType" class="App\Form\ContactType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ContactType" class="App\Form\ContactType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ArticleRepository" class="App\Repository\ArticleRepository" autowire="true" abstract="true"/>
@@ -5129,16 +5094,16 @@
         <argument key="loader" type="service" id=".errored..service_locator.KfbR3DY.Symfony\Component\Config\Loader\LoaderInterface"/>
       </argument>
     </service>
-    <service id=".service_locator.XvRkYX2" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="post" type="service" id=".errored..service_locator.XvRkYX2.App\config\Parameter"/>
-      </argument>
-    </service>
     <service id=".service_locator.ewTmbP1" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="article" type="service" id=".errored..service_locator.ewTmbP1.App\Entity\Article"/>
+      </argument>
+    </service>
+    <service id=".service_locator.CpaXrFh" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="mailer" type="service" id="mailer.mailer"/>
       </argument>
     </service>
     <service id=".service_locator.pwZ6MTM" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -5153,13 +5118,13 @@
         <argument key="authenticationUtils" type="service" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.iyv4Kx5" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.Wb52f3a" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Controller\BackController::updatePassword" type="service" id=".service_locator.XvRkYX2"/>
         <argument key="App\Controller\BlogController::edit" type="service" id=".service_locator.ewTmbP1"/>
         <argument key="App\Controller\BlogController::remove" type="service" id=".service_locator.ewTmbP1"/>
         <argument key="App\Controller\BlogController::show" type="service" id=".service_locator.ewTmbP1"/>
+        <argument key="App\Controller\HomeController::index" type="service" id=".service_locator.CpaXrFh"/>
         <argument key="App\Controller\RegistrationController::register" type="service" id=".service_locator.pwZ6MTM"/>
         <argument key="App\Controller\SecurityController::login" type="service" id=".service_locator.UDgw6Ol"/>
         <argument key="App\Kernel::loadRoutes" type="service" id=".service_locator.KfbR3DY"/>
@@ -5168,10 +5133,10 @@
         <argument key="kernel::loadRoutes" type="service" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::registerContainerConfiguration" type="service" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::terminate" type="service" id=".service_locator.KfwZsne"/>
-        <argument key="App\Controller\BackController:updatePassword" type="service" id=".service_locator.XvRkYX2"/>
         <argument key="App\Controller\BlogController:edit" type="service" id=".service_locator.ewTmbP1"/>
         <argument key="App\Controller\BlogController:remove" type="service" id=".service_locator.ewTmbP1"/>
         <argument key="App\Controller\BlogController:show" type="service" id=".service_locator.ewTmbP1"/>
+        <argument key="App\Controller\HomeController:index" type="service" id=".service_locator.CpaXrFh"/>
         <argument key="App\Controller\RegistrationController:register" type="service" id=".service_locator.pwZ6MTM"/>
         <argument key="App\Controller\SecurityController:login" type="service" id=".service_locator.UDgw6Ol"/>
         <argument key="kernel:loadRoutes" type="service" id=".service_locator.KfbR3DY"/>
@@ -5238,10 +5203,11 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.zI0x4of" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.AUa_iX1" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\ArticleType" type="service" id="App\Form\ArticleType"/>
+        <argument key="App\Form\ContactType" type="service" id="App\Form\ContactType"/>
         <argument key="App\Form\RegistrationFormType" type="service" id="App\Form\RegistrationFormType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
@@ -5434,12 +5400,6 @@
         <argument key="twig" type="service" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id=".service_locator.5nX7ca3.App\Controller\BackController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\BackController"/>
-      <argument>App\Controller\BackController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.5nX7ca3" method="withContext"/>
-    </service>
     <service id=".service_locator.5nX7ca3.App\Controller\BlogController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\BlogController"/>
       <argument>App\Controller\BlogController</argument>
@@ -5452,27 +5412,15 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.5nX7ca3" method="withContext"/>
     </service>
-    <service id=".service_locator.5nX7ca3.App\Controller\ContactController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\ContactController"/>
-      <argument>App\Controller\ContactController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.5nX7ca3" method="withContext"/>
-    </service>
-    <service id=".service_locator.5nX7ca3.App\Controller\ErrorController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\ErrorController"/>
-      <argument>App\Controller\ErrorController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.5nX7ca3" method="withContext"/>
-    </service>
-    <service id=".service_locator.5nX7ca3.App\Controller\FrontController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\FrontController"/>
-      <argument>App\Controller\FrontController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.5nX7ca3" method="withContext"/>
-    </service>
     <service id=".service_locator.5nX7ca3.App\Controller\HomeController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\HomeController"/>
       <argument>App\Controller\HomeController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.5nX7ca3" method="withContext"/>
+    </service>
+    <service id=".service_locator.5nX7ca3.App\Controller\ProfilController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\ProfilController"/>
+      <argument>App\Controller\ProfilController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.5nX7ca3" method="withContext"/>
     </service>
@@ -5621,16 +5569,15 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.iyv4Kx5"/>
+      <argument type="service" id=".service_locator.Wb52f3a"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.iyv4Kx5"/>
+      <argument type="service" id=".service_locator.Wb52f3a"/>
     </service>
     <service id=".errored..service_locator.KfwZsne.Symfony\Component\HttpFoundation\Response" class="Symfony\Component\HttpFoundation\Response"/>
     <service id=".errored..service_locator.KfbR3DY.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
-    <service id=".errored..service_locator.XvRkYX2.App\config\Parameter" class="App\config\Parameter"/>
     <service id=".errored..service_locator.ewTmbP1.App\Entity\Article" class="App\Entity\Article"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <tag name="container.no_preload"/>
@@ -6017,7 +5964,7 @@
     <service id="doctrine.migrations.metadata_storage" alias="doctrine.migrations.storage.table_storage"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.Kbr2i2X" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.iyv4Kx5"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.Wb52f3a"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

@@ -82,7 +82,7 @@ class Article
         return $this->thumb;
     }
 
-    public function setThumb(string $thumb): self
+    public function setThumb(?string $thumb): self
     {
         $this->thumb = $thumb;
 
