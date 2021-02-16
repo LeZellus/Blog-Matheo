@@ -42,3 +42,28 @@ blog_remove:
   controller: App\Controller\BlogController::remove
   requirements:
     id: '\d+'
+
+###############################################
+#Admin Routes
+###############################################
+admin_users:
+  path: /admin/users
+  controller: App\Controller\UserController::index
+admin_user_add:
+  path: /admin/user/add
+  controller: App\Controller\UserController::add
+admin_user_edit:
+  path: /admin/user/edit/{id}
+  controller: App\Controller\UserController::edit
+  requirements:
+    id: '\d+'
+admin_user_show:
+  path: /admin/user/{id}
+  controller: App\Controller\UserController::show
+  requirements:
+    id: '\d+'
+admin_user_remove:
+  path: /admin/user/remove/{id}
+  controller: App\Controller\UserController::remove
+  requirements:
+    id: '\d+'
