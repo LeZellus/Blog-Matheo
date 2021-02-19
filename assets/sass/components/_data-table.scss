@@ -8,20 +8,20 @@
   height: 5.6rem;
 }
 
+thead {
+  .tr {
+    background-color: $clr-thead-background;
+    font-weight: 700;
+    color: $clr-thead-color;
+  }
+}
+
 tbody {
 
   .tr {
     &:nth-child(odd) {
       background-color: $clr-table-background-even;
     }
-  }
-}
-
-thead {
-  .tr {
-    background-color: $clr-thead-background;
-    font-weight: 700;
-    color: $clr-thead-color;
   }
 }
 
