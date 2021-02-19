@@ -2,84 +2,66 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3d03873-2573-4dc0-b171-8ed1054acd6b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/uploads/6005975de8549.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/ProfilController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/ContactType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/includes/contact_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/profil/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user/_delete_form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user/_form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env.local" beforeDir="false" afterPath="$PROJECT_DIR$/.env.local" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Blog-Matheo.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/config/_font.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/config/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/config/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/layouts/_global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/layouts/_global.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/Files.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/Parameter.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/Request.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/Router-old.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/Router.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/Session.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/dev.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sass/components/_data-table.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/components/_data-table.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/build/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/build/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/build/runtime.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BackController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/build/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/build/entrypoints.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/cancel.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/icons/cancel.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/check.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/icons/check.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/cog.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/icons/cog.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/facebook.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/icons/facebook.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/icons/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/forbidden.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/icons/forbidden.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/github.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/icons/github.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/instagram.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/icons/instagram.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/left-arrow.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/icons/left-arrow.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/linkedin.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/icons/linkedin.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/logout.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/icons/logout.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/pencil.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/icons/pencil.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/twitter.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/icons/twitter.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/user.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/icons/user.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BlogController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ContactController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Controller.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ErrorController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/FrontController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/ArticleDAO.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/CommentDAO.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/DAO.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/UserDAO.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Article.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ArticleType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ArticleType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constraint/ArticleValidation.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constraint/CommentValidation.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constraint/Constraint.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constraint/ContactValidation.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constraint/ThumbValidation.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constraint/UpdatePasswordValidation.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constraint/UserValidation.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constraint/Validation.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/add_article.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blog/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/edit_article.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/error_404.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/error_500.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form_article.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form_comment.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/includes/article_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/article_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/single.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.php.lock" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.php.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.preload.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.preload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainer.xml.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainerCompiler.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainerCompiler.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/annotations.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/annotations.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainerCompiler.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/App_KernelDevDebugContainerDeprecations.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/annotations.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/annotations.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/profiler/index.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/url_generating_routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/url_generating_routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/url_generating_routes.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/url_generating_routes.php.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/url_matching_routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/url_matching_routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/cache/dev/url_matching_routes.php.meta" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/url_matching_routes.php.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/url_generating_routes.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/url_generating_routes.php.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/url_matching_routes.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/url_matching_routes.php.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/validation.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/dev/webpack_encore.cache.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/log/dev.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -190,6 +172,9 @@
       <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
       <path value="$PROJECT_DIR$/vendor/symfony/flex" />
       <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
     </include_path>
   </component>
   <component name="ProjectId" id="1mb2i3LIcQzQBPEmR09WKDkeAgf" />
@@ -230,6 +215,7 @@
       <workItem from="1610828524717" duration="46000" />
       <workItem from="1610992860796" duration="245000" />
       <workItem from="1610993141585" duration="651000" />
+      <workItem from="1613497455091" duration="1722000" />
     </task>
     <servers />
   </component>
@@ -258,7 +244,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/src/Controller/BlogController.php</url>
-          <line>27</line>
+          <line>29</line>
           <properties>
             <option name="className" value="\App\Controller\BlogController" />
             <option name="methodName" value="add" />

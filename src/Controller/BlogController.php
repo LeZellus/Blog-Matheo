@@ -6,10 +6,12 @@ use App\Entity\Article;
 use App\Entity\Comment;
 use App\Form\ArticleType;
 use App\Entity\User;
+use App\Repository\ArticleRepository;
+use App\Repository\CommentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
 class BlogController extends AbstractController
 {
@@ -25,7 +27,7 @@ class BlogController extends AbstractController
         ]);
     }
 
-    public function add(Request $request)
+    public function add(Request $request): Response
     {
         $article = new Article();
         $form = $this->createForm(ArticleType::class, $article);
@@ -66,7 +68,7 @@ class BlogController extends AbstractController
         ]);
     }
 
-    public function edit(Article $article, Request $request)
+    public function edit(Article $article, Request $request): Response
     {
         $oldPicture = $article->getThumb();
 
@@ -113,7 +115,7 @@ class BlogController extends AbstractController
         ]);
     }
 
-    public function show(Article $article)
+    public function show(Article $article): Response
     {
         $comments = $this->getDoctrine()->getRepository(Comment::class);
         return $this->render('blog/show.html.twig', [
@@ -122,7 +124,7 @@ class BlogController extends AbstractController
         ]);
     }
 
-    public function remove(Article $article)
+    public function remove(Article $article): \Symfony\Component\HttpFoundation\RedirectResponse
     {
         $em = $this->getDoctrine()->getManager();
         $em->remove($article);
@@ -131,17 +133,20 @@ class BlogController extends AbstractController
         return $this->redirectToRoute('admin');
     }
 
-    public function admin()
+    public function admin(ArticleRepository $articleRepository, CommentRepository $commentRepository): Response
     {
-        $articles = $this->getDoctrine()->getRepository(Article::class)->findBy(
+        $articles = $articleRepository->findBy(
             [],
             ['updatedAt' => 'DESC']
         );
+
+        $comments = $commentRepository->findAll();
 
         $users = $this->getDoctrine()->getRepository(User::class)->findAll();
 
         return $this->render('admin/index.html.twig', [
             'articles' => $articles,
+            'comments' => $comments,
             'users' => $users
         ]);
     }
