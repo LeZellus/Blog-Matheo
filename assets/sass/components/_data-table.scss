@@ -4,12 +4,8 @@
   overflow: hidden;
 }
 
-thead {
-  .tr {
-    background-color: $clr-thead-background;
-    font-weight: 700;
-    color: $clr-thead-color;
-  }
+.tr {
+  height: 5.6rem;
 }
 
 tbody {
@@ -21,7 +17,16 @@ tbody {
   }
 }
 
-.td, .th {
+thead {
+  .tr {
+    background-color: $clr-thead-background;
+    font-weight: 700;
+    color: $clr-thead-color;
+  }
+}
+
+.td,
+.th {
   vertical-align: middle;
   padding: 0 2rem;
 
@@ -52,8 +57,4 @@ tbody {
   &-actions {
     max-width: 11.6rem;
   }
-}
-
-.tr {
-  height: 5.6rem;
 }

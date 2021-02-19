@@ -1,8 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let articleContent = document.getElementsByClassName(
-        "article-content-input"
-    );
-
+    let articleContent = document.getElementsByClassName("article-content-input");
     let menu = document.getElementById("nav-burger");
     let navLinks = document.getElementById("nav-link-items");
 
@@ -48,6 +45,20 @@ document.addEventListener("DOMContentLoaded", function () {
         "rgba(40,40,40,0.1)",
     ];
 
+    //This function is like jQuery fadeOut
+    function fadeOut(item) {
+        let fadeEffect = setInterval(function () {
+            if (!item.style.opacity) {
+                item.style.opacity = 1;
+            }
+            if (item.style.opacity > 0) {
+                item.style.opacity -= 0.1;
+            } else {
+                clearInterval(fadeEffect);
+            }
+        }, 300);
+    }
+
     //Calculs and properties for cursor trail style
     let mouseMonitor = function (e) {
         let item = document.createElement("span");
@@ -80,27 +91,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 300);
     };
 
-    //This function is like jQuery fadeOut
-    function fadeOut(item) {
-        let fadeEffect = setInterval(function () {
-            if (!item.style.opacity) {
-                item.style.opacity = 1;
-            }
-            if (item.style.opacity > 0) {
-                item.style.opacity -= 0.1;
-            } else {
-                clearInterval(fadeEffect);
-            }
-        }, 300);
-    }
-
     /*******************************************************/
     /*********************BURGER MENU***********************/
     /*******************************************************/
 
     //Toggle menu function
     let toggle = function () {
-        console.log('hello');
         navLinks.classList.toggle("show");
         menu.classList.toggle("clicked");
     };
