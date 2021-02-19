@@ -14,17 +14,16 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker = Faker\Factory::create();
-        $roles = [];
 
         for ($i = 0; $i < 20; $i++) {
             $article = new Article();
             $article->setThumb("https://i.pinimg.com/originals/fe/78/bb/fe78bbb25f35d56b502327fb6d43b309.png");
-            $article->setTitle($faker->sentence($nbWords = 6, $variableNbWords = true));
-            $article->setContent($faker->text($maxNbChars = 200));
-            $article->setIsPublished($faker->boolean($chanceOfGettingTrue = 80));
-            $article->setPublishedAt($faker->dateTimeAD($max = 'now', $timezone = null));
-            $article->setUpdatedAt($faker->dateTimeAD($max = 'now', $timezone = null));
-            $article->setChapo($faker->sentence($nbWords = 5, $variableNbWords = true));
+            $article->setTitle($faker->sentence(6, true));
+            $article->setContent($faker->text(200));
+            $article->setIsPublished($faker->boolean(80));
+            $article->setPublishedAt($faker->dateTimeAD('now', null));
+            $article->setUpdatedAt($faker->dateTimeAD('now',null));
+            $article->setChapo($faker->sentence(5,true));
             $manager->persist($article);
         }
 
@@ -34,7 +33,7 @@ class AppFixtures extends Fixture
         $user->setFirstname("Mathéo");
         $user->setLastname("Zeller");
         $user->setPassword(password_hash ( "Playmate12" , PASSWORD_BCRYPT));
-        $user->setRoles(["matheo.zeller@gmail.com", "ROLE_ADMIN"]);
+        $user->setRoles(["ROLE_ADMIN"]);
         $user->setEmail("matheo.zeller@gmail.com");
         $manager->persist($user);
 
