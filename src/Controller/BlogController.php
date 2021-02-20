@@ -60,7 +60,8 @@ class BlogController extends AbstractController
             $em->persist($article); // On confie notre entité à l'entity manager (on persist l'entité)
             $em->flush(); // On execute la requete
 
-            return new Response('L\'article a bien été enregistrer.');
+            $this->addFlash('success', 'L\'article a bien été créé');
+            return $this->redirectToRoute("admin");
         }
 
         return $this->render('blog/add.html.twig', [
@@ -106,7 +107,8 @@ class BlogController extends AbstractController
             $em->persist($article);
             $em->flush();
 
-            return new Response('L\'article a bien été modifié');
+            $this->addFlash('success', 'L\'article a bien été modifié');
+            return $this->redirectToRoute("admin");
         }
 
         return $this->render('blog/edit.html.twig', [
@@ -130,6 +132,7 @@ class BlogController extends AbstractController
         $em->remove($article);
         $em->flush();
 
+        $this->addFlash('success', 'L\'article a bien été supprimé');
         return $this->redirectToRoute('admin');
     }
 

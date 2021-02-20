@@ -54,12 +54,15 @@ class SecurityController extends AbstractController
                 $user->setPassword($newEncodedPassword);
                 $em->persist($user);
                 $em->flush();
+
                 $this->addFlash('success', 'Votre mot de passe à bien été changé !');
 
                 return $this->redirectToRoute('profil');
 
             } else {
+                $this->addFlash('error', 'Vérifiez vos informations');
 
+                return $this->redirectToRoute('profil_password_update');
             }
         }
 

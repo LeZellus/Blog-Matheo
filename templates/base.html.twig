@@ -20,6 +20,26 @@
     <meta name="description" content="Voici un exemple de description, elle est encore un peu courte mais va surement changer dans les prochains jours. Elle permet d&#x27;écrire une description"/>
 </head>
 <body>
+{% for message in app.flashes('success') %}
+    <div class="notification success">
+        <div class="f ai-c notification-message">
+            ✅
+            <span>Bravo !</span>
+        </div>
+        {{ message }}
+        <i class="fi fi-rr-cross-small"></i>
+    </div>
+{% endfor %}
+{% for message in app.flashes('error') %}
+    <div class="notification error">
+        <div class="f ai-c notification-message">
+            ❌
+            <span>Erreur ! </span>
+        </div>
+        {{ message }}
+        <i class="fi fi-rr-cross-small"></i>
+    </div>
+{% endfor %}
 <header>
     <nav>
         <a href="{{ path('app_home') }}">

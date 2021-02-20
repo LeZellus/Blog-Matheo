@@ -38,6 +38,7 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
+            $this->addFlash('success', 'Utilisateur créé');
             return $this->redirectToRoute('user_index');
         }
 
@@ -71,6 +72,8 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success', 'Utilisateur modifié');
+
             return $this->redirectToRoute('user_index');
         }
 
@@ -97,7 +100,7 @@ class UserController extends AbstractController
 
             return $this->redirectToRoute('app_logout');
         }
-        return $this->redirectToRoute("app_login");
 
+        return $this->redirectToRoute("app_login");
     }
 }
