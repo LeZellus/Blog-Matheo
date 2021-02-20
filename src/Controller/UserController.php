@@ -8,7 +8,7 @@ use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class UserController extends AbstractController
 {
@@ -81,18 +81,23 @@ class UserController extends AbstractController
     }
 
     /**
-     * @param Request $request
-     * @param User $user
      * @return Response
      */
-    public function remove(Request $request, User $user): Response
+    public function remove(): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+        $user = $this->getUser();
+
+        if ($user) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($user);
             $entityManager->flush();
-        }
 
-        return $this->redirectToRoute('admin_users');
+            $session = new Session();
+            $session->invalidate();
+
+            return $this->redirectToRoute('app_logout');
+        }
+        return $this->redirectToRoute("app_login");
+
     }
 }
