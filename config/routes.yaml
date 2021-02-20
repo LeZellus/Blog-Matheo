@@ -67,3 +67,10 @@ admin_user_remove:
   controller: App\Controller\UserController::remove
   requirements:
     id: '\d+'
+
+###############################################
+#User Routes
+###############################################
+profil_password_update:
+  path: /profil/changement_mot_de_passe
+  controller: App\Controller\SecurityController::editPassword
