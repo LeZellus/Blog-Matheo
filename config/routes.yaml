@@ -14,7 +14,7 @@ app_login:
   path: /connexion
   controller: App\Controller\SecurityController::login
 app_logout:
-  path: /logout
+  path: /deconnexion
   controller: App\Controller\SecurityController::logout
 app_admin:
   path: /admin
@@ -27,18 +27,18 @@ app_profil:
 #Blog Routes
 ###############################################
 blog_add:
-  path: /ajouter
+  path: blog/ajouter
   controller: App\Controller\BlogController::add
 blog_edit:
-  path: /edit/{id}
+  path: blog/edit/{id}
   controller: App\Controller\BlogController::edit
   requirements:
     id: '\d+'
 blog_show:
-  path: /show/{id}
+  path: blog/show/{id}
   controller: App\Controller\BlogController::show
 blog_remove:
-  path: /remove/{id}
+  path: blog/remove/{id}
   controller: App\Controller\BlogController::remove
   requirements:
     id: '\d+'
@@ -72,5 +72,5 @@ admin_user_remove:
 #User Routes
 ###############################################
 profil_password_update:
-  path: /profil/changement_mot_de_passe
+  path: /profil/mot_de_passe/editer
   controller: App\Controller\SecurityController::editPassword
