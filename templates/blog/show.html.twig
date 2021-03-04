@@ -16,7 +16,7 @@
             <div class="article-content">{{ article.content | raw }}</div>
             <span>{% for category in article.categories %} {{ category.label }}{{ loop.last ? '' : ',' }} {% endfor %}</span>
             <span class="article-created">
-                Créé le : {{ article.publishedAt|date('d/m/Y') }} par Mathéo Zeller
+                Créé le : {{ article.publishedAt|date('d/m/Y') }} <span class="article-author"> par Mathéo Zeller</span>
             </span>
             <span class="article-updated">Modifié le : {{ article.updatedAt|date('d/m/Y') }}</span>
             {% if app.user %}
