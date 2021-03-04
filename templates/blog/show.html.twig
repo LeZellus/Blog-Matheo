@@ -14,7 +14,13 @@
             <div class="article-thumb" style="background-image: url('{{ asset('uploads/' ~ article.thumb) }}')"></div>
 
             <div class="article-content">{{ article.content | raw }}</div>
-            <span>{% for category in article.categories %} {{ category.label }}{{ loop.last ? '' : ',' }} {% endfor %}</span>
+            <p class="article-categories">
+                {% for category in article.categories %}
+                    <span class="article-categorie">
+                        {{ category.label }}{{ loop.last ? '' : ',' }}
+                    </span>
+                {% endfor %}
+            </p>
             <span class="article-created">
                 Créé le : {{ article.publishedAt|date('d/m/Y') }} <span class="article-author"> par Mathéo Zeller</span>
             </span>
@@ -37,22 +43,19 @@
             {% endif %}
 
             <h2>Commentaires</h2>
-            {% if comments %}
-                {% for comment in comments %}
+            {% for comment in comments %}
+                {% if comment.isValid == 1 %}
                     <section class="comment grid">
-                        {% if comment.isValid == 1 %}
-                            <img class="comment-thumb" src="{{ asset('uploads/icons/user.svg') }}"
-                                 alt="Icone utilisateur">
-                            <section class="grid grid-gap-10 comment-content">
-                                <h3>{{ comment.author }}</h3>
-                                <p>{{ comment.content }}</p>
-                            </section>
-                        {% endif %}
+                        <img class="comment-thumb" src="{{ asset('uploads/icons/user.svg') }}"
+                             alt="Icone utilisateur">
+                        <section class="grid grid-gap-10 comment-content">
+                            <h3>{{ comment.author }}</h3>
+                            <p class="article-created">Commentaire posté le : {{ comment.createdAt | date('m/d/Y') }}</p>
+                            <p>{{ comment.content }}</p>
+                        </section>
                     </section>
-                {% endfor %}
-            {% else %}
-                <p>Aucun commentaires</p>
-            {% endif %}
+                {% endif %}
+            {% endfor %}
         </section>
     </main>
 {% endblock %}
