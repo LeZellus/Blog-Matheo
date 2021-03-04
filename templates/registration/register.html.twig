@@ -2,7 +2,10 @@
 
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription{% endblock %}
+{% block title %}
+    Inscription |
+    {{ parent() }}
+{% endblock %}
 
 {% block content %}
     <main class="total-flex m-h">

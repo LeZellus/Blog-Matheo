@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Utilisateurs{% endblock %}
+{% block title %}
+    Utilisateurs |
+    {{ parent() }}
+{% endblock %}
 
 {% block content %}
     <h1>Administration <br> Utilisateurs</h1>
