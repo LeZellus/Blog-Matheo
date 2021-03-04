@@ -78,3 +78,18 @@ profil_password_update:
 profil_remove:
   path: /profil/supprimer
   controller: App\Controller\UserController::remove
+
+###############################################
+#User Routes
+###############################################
+comment_valid:
+  path: /admin/comment/valid/{id}
+  controller: App\Controller\CommentsController::validComment
+  requirements:
+    id: '\d+'
+
+comment_remove:
+  path: /admin/comment/remove/{id}
+  controller: App\Controller\CommentsController::removeComment
+  requirements:
+    id: '\d+'

@@ -6,6 +6,7 @@ use App\Entity\Article;
 use App\Entity\Comment;
 use App\Form\ArticleType;
 use App\Entity\User;
+use App\Form\CommentType;
 use App\Repository\ArticleRepository;
 use App\Repository\CommentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -31,14 +32,14 @@ class BlogController extends AbstractController
     {
         $article = new Article();
         $form = $this->createForm(ArticleType::class, $article);
-
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $article->setUpdatedAt(new \DateTime());
 
             if ($article->getThumb() !== null) {
                 $file = $form->get('thumb')->getData();
-                $fileName =  uniqid(). '.' .$file->guessExtension();
+                $fileName = uniqid() . '.' . $file->guessExtension();
 
                 try {
                     $file->move(
@@ -61,7 +62,7 @@ class BlogController extends AbstractController
             $em->flush(); // On execute la requete
 
             $this->addFlash('success', 'L\'article a bien été créé');
-            return $this->redirectToRoute("admin");
+            return $this->redirectToRoute("app_admin");
         }
 
         return $this->render('blog/add.html.twig', [
@@ -77,7 +78,6 @@ class BlogController extends AbstractController
         $form->handleRequest($request);
 
 
-
         if ($form->isSubmitted() && $form->isValid()) {
             $article->setUpdatedAt(new \DateTime());
 
@@ -87,7 +87,7 @@ class BlogController extends AbstractController
 
             if ($article->getThumb() !== null && $article->getThumb() !== $oldPicture) {
                 $file = $form->get('thumb')->getData();
-                $fileName = uniqid(). '.' .$file->guessExtension();
+                $fileName = uniqid() . '.' . $file->guessExtension();
 
                 try {
                     $file->move(
@@ -108,21 +108,42 @@ class BlogController extends AbstractController
             $em->flush();
 
             $this->addFlash('success', 'L\'article a bien été modifié');
-            return $this->redirectToRoute("admin");
+            return $this->redirectToRoute("app_admin");
         }
 
         return $this->render('blog/edit.html.twig', [
             'article' => $article,
-            'form' => $form->createView()
+            'form' => $form->createView(),
         ]);
     }
 
-    public function show(Article $article): Response
+    public function show(Request $request, Article $article): Response
     {
-        $comments = $this->getDoctrine()->getRepository(Comment::class);
+        $user = $this->getUser();
+
+        $comments = $article->getComments();
+        $comment = new Comment();
+        $comment->setArticle($article);
+
+        $formComment = $this->createForm(CommentType::class, $comment);
+        $formComment->handleRequest($request);
+
+        if($formComment->isSubmitted() && $formComment->isValid()){
+            $comment->setCreatedAt(new \DateTime());
+            $comment->setAuthor($user->getUsername());
+            $comment->setIsValid(0);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($comment);
+            $em->flush();
+
+            return $this->redirectToRoute("app_admin");
+        }
+
         return $this->render('blog/show.html.twig', [
             'article' => $article,
-            'comments' => $comments
+            'comments' => $comments,
+            'form' => $formComment->createView(),
         ]);
     }
 

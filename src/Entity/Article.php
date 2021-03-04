@@ -57,12 +57,12 @@ class Article
     private $categories;
 
     /**
-     * @ORM\Column(type="string", length=80)
+     * @ORM\Column(type="string", length=255)
      */
-    private $Chapo;
+    private $chapo;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="articles")
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="article")
      */
     private $comments;
 
@@ -175,12 +175,12 @@ class Article
 
     public function getChapo(): ?string
     {
-        return $this->Chapo;
+        return $this->chapo;
     }
 
-    public function setChapo(string $Chapo): self
+    public function setChapo(string $chapo): self
     {
-        $this->Chapo = $Chapo;
+        $this->chapo = $chapo;
 
         return $this;
     }
@@ -197,7 +197,7 @@ class Article
     {
         if (!$this->comments->contains($comment)) {
             $this->comments[] = $comment;
-            $comment->setArticles($this);
+            $comment->setArticle($this);
         }
 
         return $this;
@@ -207,8 +207,8 @@ class Article
     {
         if ($this->comments->removeElement($comment)) {
             // set the owning side to null (unless already changed)
-            if ($comment->getArticles() === $this) {
-                $comment->setArticles(null);
+            if ($comment->getArticle() === $this) {
+                $comment->setArticle(null);
             }
         }
 

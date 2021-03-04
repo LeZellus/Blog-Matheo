@@ -15,18 +15,12 @@ class Comment
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Pseudo;
-
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $Content;
+    private $author;
 
     /**
      * @ORM\Column(type="datetime")
@@ -34,45 +28,33 @@ class Comment
     private $createdAt;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
-    private $articleId;
+    private $content;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="boolean")
+     */
+    private $isValid;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="comments")
      */
     private $article;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Article", inversedBy="comment")
-     */
-    private $articles;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getPseudo(): ?string
+    public function getAuthor(): ?string
     {
-        return $this->Pseudo;
+        return $this->author;
     }
 
-    public function setPseudo(string $Pseudo): self
+    public function setAuthor(string $author): self
     {
-        $this->Pseudo = $Pseudo;
-
-        return $this;
-    }
-
-    public function getContent(): ?string
-    {
-        return $this->Content;
-    }
-
-    public function setContent(string $Content): self
-    {
-        $this->Content = $Content;
+        $this->author = $author;
 
         return $this;
     }
@@ -89,38 +71,38 @@ class Comment
         return $this;
     }
 
-    public function getArticleId(): ?int
+    public function getContent(): ?string
     {
-        return $this->articleId;
+        return $this->content;
     }
 
-    public function setArticleId(int $articleId): self
+    public function setContent(string $content): self
     {
-        $this->articleId = $articleId;
+        $this->content = $content;
 
         return $this;
     }
 
-    public function getArticle(): ?int
+    public function getIsValid(): ?bool
+    {
+        return $this->isValid;
+    }
+
+    public function setIsValid(bool $isValid): self
+    {
+        $this->isValid = $isValid;
+
+        return $this;
+    }
+
+    public function getArticle(): ?Article
     {
         return $this->article;
     }
 
-    public function setArticle(int $article): self
+    public function setArticle(?Article $article): self
     {
         $this->article = $article;
-
-        return $this;
-    }
-
-    public function getArticles(): ?Article
-    {
-        return $this->articles;
-    }
-
-    public function setArticles(?Article $articles): self
-    {
-        $this->articles = $articles;
 
         return $this;
     }

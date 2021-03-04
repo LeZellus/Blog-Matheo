@@ -35,8 +35,8 @@
                     <td class="td td-created">{{ article.publishedAt|date("m/d/Y") }}</td>
                     <td class="td td-updated">{{ article.updatedAt|date("m/d/Y") }}</td>
                     <td class="td td-actions">
-                        <a href="{{ path('blog_edit', {'id': article.id}) }}">Editer</a>
-                        <a href="{{ path('blog_remove', {'id': article.id}) }}">Supprimer</a>
+                        <a href="{{ path('blog_edit', {'id': article.id}) }}">🖊</a>
+                        <a href="{{ path('blog_remove', {'id': article.id}) }}">❌</a>
                     </td>
                 </tr>
             {% endfor %}
@@ -44,7 +44,6 @@
         </table>
     </section>
 
-    <?php if ($comments) { ?>
     <section class="grid grid-gap-40 table-box">
         <h2 class="mt-4">Commentaire(s) en attente</h2>
         <table class="table bg-white">
@@ -59,24 +58,26 @@
 
             <tbody>
             {% for comment in comments %}
-                <tr class="tr">
-                    <td class="td td-title">{{ comment.pseudo }}</td>
-                    <td class="td"><?= substr(htmlspecialchars($comment->getContent()), 0, 150); ?></td>
-                    <td class="td td-created"><?= htmlspecialchars($comment->getCreatedAt()); ?></td>
-                    <td class="td td-actions">
-                        <a href="/index.php?route=flagComment&commentId=<?= $comment->getId(); ?>">
-                            <img src="/icons/check.png" class="icon-check" alt="Icone valider">
-                        </a>
-                        <a href="/index.php?route=removeComment&commentId=<?= $comment->getId(); ?>">
-                            <img src="/icons/cancel.png" class="icon-remove" alt="Icone supprimer">
-                        </a>
-                    </td>
-                </tr>
+                {% if comment.isValid == 0 %}
+                    <tr class="tr">
+                        <td class="td td-title">{{ comment.author }}</td>
+                        <td class="td">{{ comment.content }}</td>
+                        <td class="td td-created"></td>
+                        <td class="td td-actions">
+                            <a href="{{ path('comment_valid', {'id': comment.id}) }}">
+                                ✅
+                            </a>
+                            <a href="{{ path('comment_remove', {'id': comment.id}) }}">
+                                ❌
+                            </a>
+                        </td>
+                    </tr>
+                {% endif %}
             {% endfor %}
             </tbody>
         </table>
     </section>
-    <?php } ?>
+
 
     <section class="grid grid-gap-40 table-box">
         <h2 class="mt-4">Utilisateurs</h2>
@@ -94,9 +95,9 @@
                     <td class="td td-title">{{ user.username }}</td>
                     <td class="td">
                         {% if is_granted('ROLE_ADMIN') %}
-                        User
+                            User
                         {% else %}
-                        Admin
+                            Admin
                         {% endif %}
                     </td>
                     <td class="td td-actions">

@@ -1,0 +1,12 @@
+{{ form_start(form, {'attr': {'class': 'grid grid-gap-20'}}) }}
+
+<div class="form-control grid grid-gap-10">
+    {{ form_label(form.content, 'Commentaire', {'label_attr': {'class': 'form-control-label'}}) }}
+    {{ form_widget(form.content, {'attr': {'placeholder': 'Quel article génial !', 'class': 'comment-area'}}) }}
+    <span class="error">{{ form_errors(form.content) }}</span>
+</div>
+
+<div>
+    <input type="submit" name="" value="Enregistrer" class="btn btn-primary">
+</div>
+{{ form_end(form) }}

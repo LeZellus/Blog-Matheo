@@ -19,8 +19,7 @@
   }
 
   &-thumb {
-    position: absolute;
-    width: calc(100% - 8rem);
+    width: 100%;
     box-shadow: $box-shadow;
     height: 50rem;
     background-size: cover;
