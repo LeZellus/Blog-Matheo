@@ -21,7 +21,7 @@ class UserType extends AbstractType
                     'Utilisateur' => "ROLE_USER",
                 ),
             ])
-            ->add('username')
+            ->add('pseudo')
             ->add('lastname')
             ->add('firstname');
 

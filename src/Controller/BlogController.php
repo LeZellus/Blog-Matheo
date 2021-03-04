@@ -130,14 +130,15 @@ class BlogController extends AbstractController
 
         if($formComment->isSubmitted() && $formComment->isValid()){
             $comment->setCreatedAt(new \DateTime());
-            $comment->setAuthor($user->getUsername());
+            $comment->setAuthor($user->getPseudo());
             $comment->setIsValid(0);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($comment);
             $em->flush();
 
-            return $this->redirectToRoute("app_admin");
+            $this->addFlash("success", "Votre commentaire est soumis à une validation");
+            return $this->redirectToRoute("blog_show", ['id'=> $article->getId()]);
         }
 
         return $this->render('blog/show.html.twig', [
