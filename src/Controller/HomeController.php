@@ -15,11 +15,9 @@ class HomeController extends AbstractController
     public function index(Request $request, MailerInterface $mailer): Response
     {
         $form = $this->createForm(ContactType::class);
-
         $form->handleRequest($request);
 
-
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
 
             $contactFormData = $form->getData();
 
@@ -27,7 +25,7 @@ class HomeController extends AbstractController
                 ->from($contactFormData['email'])
                 ->to('matheo.zeller@gmail.com')
                 ->subject('Vous avez reçu un mail d\'un visiteur du blog')
-                ->text('Destinataire : '.$contactFormData['email'].\PHP_EOL.
+                ->text('Destinataire : ' . $contactFormData['email'] . \PHP_EOL .
                     $contactFormData['message'],
                     'text/plain');
 
@@ -40,7 +38,8 @@ class HomeController extends AbstractController
 
         $articles = $this->getDoctrine()->getRepository(Article::class)->findBy(
             ['isPublished' => true],
-            ['publishedAt' => 'desc']
+            ['publishedAt' => 'desc'],
+            4
         );
 
         return $this->render('home/index.html.twig', [

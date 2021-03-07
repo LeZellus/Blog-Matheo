@@ -19,21 +19,21 @@
         <section class="grid grid-gap-40 articles">
             <h2 class="mt-4">Derniers articles</h2>
             {% for article in articles %}
-            <article>
-                <a href="{{ path('blog_show', {'id': article.id}) }}" class="grid card card-article bg-white">
-                    <div class="card-thumb" style="background-image: url('{{ asset('uploads/' ~ article.thumb) }}')">
+                <article>
+                    <a href="{{ path('blog_show', {'id': article.id}) }}" class="grid card card-article bg-white">
+                        <div class="card-thumb" style="background-image: url('{{ asset('uploads/' ~ article.thumb) }}')">
 
-                    </div>
-                    <section class="card-content grid grid-gap-20">
-                        <h3 class="card-title">{{ article.title }}</h3>
-                        <p class="card-desc">{{ article.chapo }}</p>
-                        <p>Écrit par :
-                            <span class="card-author">A FAIRE</span>
-                        </p>
-                    </section>
-                    <p class="card-date">Modifié le : {{ article.updatedAt|date('d/m/Y') }}</p>
-                </a>
-            </article>
+                        </div>
+                        <section class="card-content grid grid-gap-20">
+                            <h3 class="card-title">{{ article.title }}</h3>
+                            <p class="card-desc">{{ article.chapo }}</p>
+                            <p>Écrit par :
+                                <span class="card-author">A FAIRE</span>
+                            </p>
+                        </section>
+                        <p class="card-date">Modifié le : {{ article.updatedAt|date('d/m/Y') }}</p>
+                    </a>
+                </article>
             {% endfor %}
         </section>
 

@@ -15,7 +15,7 @@
             <form method="post" class="grid grid-gap-20" id="form-login">
                 {% if error %}
                     <div class="col s12 m6 l6 offset-m3 offset-l3">
-                        <span class="error">{{ error.messageKey|trans(error.messageData, 'security') }}</span>
+                        <span class="error">Le nom de compte / mot de passe est incorrect</span>
                     </div>
                 {% endif %}
 
