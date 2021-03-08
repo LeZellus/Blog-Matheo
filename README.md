@@ -1,4 +1,7 @@
 #P5-BlogMVC
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a357ec565060451eb1169ef020fffc79)](https://app.codacy.com/gh/LeZellus/Blog-Matheo?utm_source=github.com&utm_medium=referral&utm_content=LeZellus/Blog-Matheo&utm_campaign=Badge_Grade_Settings)
+
 ##Codacy Badge
 
 Projet 5 de mon parcours Développeur d'application PHP/Symfony chez OpenClassrooms. Création d'un Blog via une architecture MVC Orienté objet.
