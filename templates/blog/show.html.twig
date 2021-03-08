@@ -14,6 +14,7 @@
             <div class="article-thumb" style="background-image: url('{{ asset('uploads/' ~ article.thumb) }}')"></div>
 
             <div class="article-content">{{ article.content | raw }}</div>
+
             <p class="article-categories">
                 {% for category in article.categories %}
                     <span class="article-categorie">
@@ -21,6 +22,7 @@
                     </span>
                 {% endfor %}
             </p>
+            
             <span class="article-created">
                 Créé le : {{ article.publishedAt|date('d/m/Y') }} <span class="article-author"> par Mathéo Zeller</span>
             </span>
@@ -50,7 +52,8 @@
                              alt="Icone utilisateur">
                         <section class="grid grid-gap-10 comment-content">
                             <h3>{{ comment.author }}</h3>
-                            <p class="article-created">Commentaire posté le : {{ comment.createdAt | date('m/d/Y') }}</p>
+                            <p class="article-created">Commentaire posté le
+                                : {{ comment.createdAt | date('m/d/Y') }}</p>
                             <p>{{ comment.content }}</p>
                         </section>
                     </section>
