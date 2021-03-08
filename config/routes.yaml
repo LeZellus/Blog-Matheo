@@ -27,18 +27,20 @@ app_profil:
 #Blog Routes
 ###############################################
 blog_add:
-  path: blog/ajouter
+  path: /admin/blog/ajouter
   controller: App\Controller\BlogController::add
 blog_edit:
-  path: blog/edit/{id}
+  path: /admin/blog/edit/{id}
   controller: App\Controller\BlogController::edit
   requirements:
     id: '\d+'
 blog_show:
-  path: blog/show/{id}
+  path: /blog/show/{id}
   controller: App\Controller\BlogController::show
+
+#> This route doesn't work
 blog_remove:
-  path: blog/remove/{id}
+  path: /admin/blog/remove/{id}
   controller: App\Controller\BlogController::remove
   requirements:
     id: '\d+'
@@ -52,11 +54,6 @@ admin_user_add:
 admin_user_edit:
   path: /admin/user/edit/{id}
   controller: App\Controller\UserController::edit
-  requirements:
-    id: '\d+'
-admin_user_show:
-  path: /admin/user/{id}
-  controller: App\Controller\UserController::show
   requirements:
     id: '\d+'
 admin_user_remove:

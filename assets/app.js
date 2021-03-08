@@ -21,18 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let cvImg = document.getElementById("cv-img");
 
     /*******************************************************/
-    /**********************TinyCME**************************/
-    /*******************************************************/
-
-    //Init TinyCME only if class exist on the DOM to block error
-    if (articleContent.length > 0) {
-        tinymce.init({
-            selector: ".article-content-input",
-            plugins: "link",
-        });
-    }
-
-    /*******************************************************/
     /**********************Popup Img************************/
     /*******************************************************/
 
@@ -73,4 +61,16 @@ document.addEventListener("DOMContentLoaded", function () {
         //cvWrapper.addEventListener("click", popupManage);
         //cvImg.addEventListener("click", popupManage);
     };
+
+    /*******************************************************/
+    /**********************TinyCME**************************/
+    /*******************************************************/
+
+    //Init TinyCME only if class exist on the DOM to block error
+    if (articleContent.length > 0) {
+        tinymce.init({
+            selector: ".article-content-input",
+            plugins: "link",
+        });
+    }
 });
