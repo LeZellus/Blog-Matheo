@@ -13,9 +13,9 @@
 </div>
 
 <div class="form-control grid grid-gap-10">
-    {{ form_label(form.username, 'Pseudo', {'label_attr': {'class': 'form-control-label'}}) }}
-    {{ form_widget(form.username) }}
-    <span class="error">{{ form_errors(form.username) }}</span>
+    {{ form_label(form.pseudo, 'Pseudo', {'label_attr': {'class': 'form-control-label'}}) }}
+    {{ form_widget(form.pseudo) }}
+    <span class="error">{{ form_errors(form.pseudo) }}</span>
 </div>
 
 <div class="form-control grid grid-gap-10">
@@ -31,6 +31,6 @@
 </div>
 
 <div>
-    <input type="button" class="button-primary" value="{{ button_label|default('Sauvegarder') }}">
+    <input type="submit" class="button-primary" value="{{ button_label|default('Sauvegarder') }}">
 </div>
 {{ form_end(form) }}

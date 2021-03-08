@@ -46,9 +46,6 @@ blog_remove:
 ###############################################
 #Admin Routes
 ###############################################
-admin_users:
-  path: /admin/users
-  controller: App\Controller\UserController::index
 admin_user_add:
   path: /admin/user/add
   controller: App\Controller\UserController::add
@@ -64,7 +61,7 @@ admin_user_show:
     id: '\d+'
 admin_user_remove:
   path: /admin/user/remove/{id}
-  controller: App\Controller\UserController::remove
+  controller: App\Controller\SecurityController::removeUser
   requirements:
     id: '\d+'
 

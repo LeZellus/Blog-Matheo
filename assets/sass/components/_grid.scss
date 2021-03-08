@@ -20,4 +20,10 @@
   &-center {
     justify-content: center;
   }
+
+  &-admin {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    padding: 0 4rem;
+    grid-gap: 2rem;
+  }
 }

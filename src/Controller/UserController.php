@@ -13,17 +13,6 @@ use Symfony\Component\HttpFoundation\Session\Session;
 class UserController extends AbstractController
 {
     /**
-     * @param UserRepository $userRepository
-     * @return Response
-     */
-    public function index(UserRepository $userRepository): Response
-    {
-        return $this->render('user/index.html.twig', [
-            'users' => $userRepository->findAll(),
-        ]);
-    }
-
-    /**
      * @param Request $request
      * @return Response
      */
@@ -74,7 +63,7 @@ class UserController extends AbstractController
 
             $this->addFlash('success', 'Utilisateur modifié');
 
-            return $this->redirectToRoute('user_index');
+            return $this->redirectToRoute('app_admin');
         }
 
         return $this->render('user/edit.html.twig', [

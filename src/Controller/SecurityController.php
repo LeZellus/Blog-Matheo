@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -70,5 +72,18 @@ class SecurityController extends AbstractController
             'form' => $form->createView(),
         ));
 
+    }
+
+    /**
+     * @param User $user
+     * @return RedirectResponse
+     */
+    public function removeUser(User $user): RedirectResponse
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($user);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_admin');
     }
 }

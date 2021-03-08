@@ -89,4 +89,32 @@
       right: 2rem;
     }
   }
+
+  &-admin {
+    border: 1px solid $clr-border;
+    border-radius: 1.5rem;
+    padding: 2rem;
+
+    a {
+      text-decoration: none;
+    }
+
+    &-date {
+      color: $clr-text-generic-color;
+
+      span {
+        font-weight: bold;
+      }
+    }
+
+    &-title {
+      color: $clr-card-title;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    &-roles{
+      color: $clr-secondary;
+    }
+  }
 }

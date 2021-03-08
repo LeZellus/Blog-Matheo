@@ -8,104 +8,72 @@
     <h1>Page d'administration</h1>
 
     <section class="grid grid-gap-40 jc-center mt-4">
-        <a class="button-primary" href="{{ path('admin_users') }}">Utilisateurs</a>
         <a class="button-primary" href="{{ path('blog_add') }}">Nouvel article</a>
     </section>
 
-    <section class="grid grid-gap-40 table-box">
+    <section class="grid grid-gap-40">
         <h2 class="mt-4">Articles</h2>
-        <table class="table bg-white">
-            <thead>
-            <tr class="tr">
-                <td class="td">Titre</td>
-                <td class="td">Description</td>
-                <td class="td">Creation</td>
-                <td class="td">Modification</td>
-                <td class="td">Actions</td>
-            </tr>
-            </thead>
-
-            <tbody>
+        <section class="grid grid-admin">
             {% for article in articles %}
-                <tr class="tr">
-                    <td class="td td-title">
-                        <a href="{{ path('blog_show', {'id': article.id}) }}">{{ article.title }}</a>
-                    </td>
-                    <td class="td td-desc">{{ article.chapo }}</td>
-                    <td class="td td-created">{{ article.publishedAt|date("m/d/Y") }}</td>
-                    <td class="td td-updated">{{ article.updatedAt|date("m/d/Y") }}</td>
-                    <td class="td td-actions">
+                <article class="grid grid-gap-10 card-admin">
+                    <a href="{{ path('blog_show', {'id': article.id}) }}" class="card-admin-title">
+                        {{ article.title }}
+                    </a>
+                    <div class="card-admin-date">
+                        <div>Création : <span>{{ article.publishedAt|date("m/d/Y") }}</span></div>
+                        <div>Modification : <span>{{ article.updatedAt|date("m/d/Y") }}</span></div>
+                    </div>
+                    <div class="card-admin-actions">
                         <a href="{{ path('blog_edit', {'id': article.id}) }}">🖊</a>
                         <a href="{{ path('blog_remove', {'id': article.id}) }}">❌</a>
-                    </td>
-                </tr>
+                    </div>
+                </article>
             {% endfor %}
-            </tbody>
-        </table>
+        </section>
     </section>
 
     <section class="grid grid-gap-40 table-box">
         <h2 class="mt-4">Commentaire(s) en attente</h2>
-        <table class="table bg-white">
-            <thead>
-            <tr class="tr tr-menu">
-                <td class="td">Pseudo</td>
-                <td class="td">Message</td>
-                <td class="td">Date</td>
-                <td class="td">Actions</td>
-            </tr>
-            </thead>
-
-            <tbody>
+        <section class="grid grid-admin">
             {% for comment in comments %}
                 {% if comment.isValid == 0 %}
-                    <tr class="tr">
-                        <td class="td td-title">{{ comment.author }}</td>
-                        <td class="td">{{ comment.content }}</td>
-                        <td class="td td-created"></td>
-                        <td class="td td-actions">
+                    <article class="grid grid-gap-10 card-admin">
+                        <div class="card-admin-title">{{ comment.author }}</div>
+                        <div class="td">{{ comment.content }}</div>
+                        <div class="card-admin-actions">
                             <a href="{{ path('comment_valid', {'id': comment.id}) }}">
                                 ✅
                             </a>
                             <a href="{{ path('comment_remove', {'id': comment.id}) }}">
                                 ❌
                             </a>
-                        </td>
-                    </tr>
+                        </div>
+                    </article>
                 {% endif %}
             {% endfor %}
-            </tbody>
-        </table>
+        </section>
     </section>
 
 
     <section class="grid grid-gap-40 table-box">
         <h2 class="mt-4">Utilisateurs</h2>
-        <table class="table bg-white">
-            <thead>
-            <tr class="tr tr-menu">
-                <td class="td">Pseudo</td>
-                <td class="td">Date</td>
-                <td class="td">Actions</td>
-            </tr>
-            </thead>
-            <tbody>
+        <section class="grid grid-admin">
             {% for user in users %}
-                <tr class="tr">
-                    <td class="td td-title">{{ user.username }}</td>
-                    <td class="td">
-                        {% if is_granted('ROLE_ADMIN') %}
-                            User
-                        {% else %}
-                            Admin
-                        {% endif %}
-                    </td>
-                    <td class="td td-actions">
-                        <a href="{{ path('blog_edit', {'id': user.id}) }}">Supprimer</a>
-                    </td>
-                </tr>
+                <article class="grid grid-gap-10 card-admin">
+                    <div class="card-admin-title">{{ user.firstname }} {{ user.lastname }}</div>
+                    <div class="card-admin-username">{{ user.username }}</div>
+                    <div class="card-admin-author">{{ user.pseudo }}</div>
+                    <div class="card-admin-roles">
+                        {% for role in user.roles %}
+                        {{ role }}
+                        {% endfor %}
+                    </div>
+                    <div class="card-admin-actions">
+                        <a href="{{ path('admin_user_edit', {'id': user.id}) }}">🖊</a>
+                        <a href="{{ path('admin_user_remove', {'id': user.id}) }}">❌</a>
+                    </div>
+                </article>
             {% endfor %}
-            </tbody>
-        </table>
+        </section>
     </section>
 {% endblock %}
