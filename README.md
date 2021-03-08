@@ -35,7 +35,7 @@ Remplacez également les valeurs pour effectuer la connection à votre base de d
 
 Mettez-vous également en environnement de développement afin d'installer toutes les dépendances requises au projet :
 ```
-APP_ENV=DEV
+APP_ENV=dev
 ```
 
 ### Création du projet:

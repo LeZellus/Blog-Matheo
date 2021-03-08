@@ -1,3 +1,3 @@
 #!/bin/sh
 
-rsync -av ./ co8pr_xipel@co8pr.ftp.infomaniak.com:~/xipel --include=public/build --include=public/.htaccess --include=vendor --exclude-from=.gitignore --exclude=".*"
+rsync -av ./ co8pr_xipel@co8pr.ftp.infomaniak.com:~/xipel --include=public/build --include=public/.htaccess --include=vendor --exclude-from=.gitignore --exclude=".*" --exclude="deploy"
