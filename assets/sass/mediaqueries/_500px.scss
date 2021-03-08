@@ -1,6 +1,6 @@
 @media screen and (max-width: 50rem) {
   h1 {
-    font-size: 2.5rem;
+    font-size: 1.6rem;
   }
 
   .td-desc {
@@ -26,5 +26,12 @@
 
   .button-box {
     grid-template-columns: 1fr;
+  }
+
+  section{
+    &.comments,
+    &.article{
+      margin: 0;
+    }
   }
 }
