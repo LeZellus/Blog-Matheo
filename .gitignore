@@ -13,6 +13,7 @@
 /var/
 /vendor/
 .idea
+deploy
 ###< symfony/framework-bundle ###
 
 ###> symfony/webpack-encore-bundle ###
