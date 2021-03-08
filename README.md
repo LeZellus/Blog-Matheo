@@ -15,6 +15,9 @@ Sass = **4.14.1**
 
 MySql
 
+## Identifiants :
+
+
 # Informations :
 
 Le modèle MVC & Framework de ce projet est fortement inspiré du cours de Fabien Potencier, de WhatZeWeb ainsi que de Lior Chamla.

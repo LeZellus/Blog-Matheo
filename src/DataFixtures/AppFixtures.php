@@ -54,6 +54,16 @@ class AppFixtures extends Fixture
         $user->setPseudo('hitachi');
         $manager->persist($user);
 
+        $user = new User();
+        $user->setUsername("Admin");
+        $user->setFirstname("Admin");
+        $user->setLastname("Admin");
+        $user->setPassword(password_hash("Admin123", PASSWORD_BCRYPT));
+        $user->setRoles(["ROLE_ADMIN"]);
+        $user->setEmail("admin@exemple.fr");
+        $user->setPseudo('Gaara');
+        $manager->persist($user);
+
         $manager->flush();
     }
 
@@ -84,7 +94,6 @@ class AppFixtures extends Fixture
     /**
      * @param $manager
      * Comment fake data
-     * @param User $user
      */
     public function addComments($manager)
     {
