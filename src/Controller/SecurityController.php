@@ -13,6 +13,10 @@ use App\Form\UpdatePasswordType;
 
 class SecurityController extends AbstractController
 {
+    /**
+     * @param AuthenticationUtils $authenticationUtils
+     * @return Response
+     */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
         if ($this->getUser()) {
@@ -27,11 +31,17 @@ class SecurityController extends AbstractController
         return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
     }
 
+
     public function logout()
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
 
+    /**
+     * @param Request $request
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @return RedirectResponse|Response
+     */
     public function editPassword(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
         $em = $this->getDoctrine()->getManager();
