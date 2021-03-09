@@ -15,8 +15,15 @@ Sass = **4.14.1**
 
 MySql
 
-## Identifiants :
+## Identifiants de connexion :
 
+Identifiant Admin : **admin@exemple.fr**
+Mot de passe : **Admin123**
+
+Identifiant visiteur : **visiteur@exemple.fr**
+Mot de passe : **visiteur**
+
+[Application Démonstration](http://xipelgames.tech)
 
 # Informations :
 
@@ -55,7 +62,7 @@ Puis :
 yarn install
 ```
 
-###Création de la base de données et hydration : 
+### Création de la base de données et hydration : 
 Créez votre base de données via cette commande :
 ```
 php bin/console doctrine:database:create
@@ -69,6 +76,20 @@ php bin/console doctrine:schema:update --force
 Enfin, pour générer des données fictives, vous pouvez également hydrater votre base avec la commande :
 ```
 php bin/console doctrine:fixtures:load
+```
+
+### Démarrer le serveur :
+Pour démarrer sur un port automatiquement (nécessite d'avoir le [Local Web Serveur](https://symfony.com/doc/current/setup/symfony_server.html)) :
+```
+symfony serve
+```
+ou sur un port spécifique :
+```
+symfony serve --port=3000
+```
+ou avec un serveur apache
+```
+php -S localhost:8000 -t public/
 ```
 
 ## Documentation développeur :
