@@ -155,7 +155,7 @@ class BlogController extends AbstractController
         $em->flush();
 
         $this->addFlash('success', 'L\'article a bien été supprimé');
-        return $this->redirectToRoute('admin');
+        return $this->redirectToRoute('app_admin');
     }
 
     public function admin(ArticleRepository $articleRepository, CommentRepository $commentRepository): Response
