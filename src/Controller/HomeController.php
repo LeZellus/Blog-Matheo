@@ -31,7 +31,7 @@ class HomeController extends AbstractController
             $message = (new Email())
                 ->from($contactFormData['email'])
                 ->to('matheo.zeller@gmail.com')
-                ->subject('Vous avez reçu un mail d\'un visiteur du blog')
+                ->subject('Vous avez reçu un mail de ' . $contactFormData['fullName'] . ', visiteur du blog')
                 ->text('Destinataire : ' . $contactFormData['email'] . \PHP_EOL .
                     $contactFormData['message'],
                     'text/plain');

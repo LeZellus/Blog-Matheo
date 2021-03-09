@@ -37,8 +37,6 @@ blog_edit:
 blog_show:
   path: /blog/show/{id}
   controller: App\Controller\BlogController::show
-
-#> This route doesn't work
 blog_remove:
   path: /admin/blog/remove/{id}
   controller: App\Controller\BlogController::remove
