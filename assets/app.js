@@ -64,7 +64,9 @@ document.addEventListener("DOMContentLoaded", function () {
     /*******************************************************/
     window.onload = function () {
         menu.addEventListener("click", toggle);
-        flash.addEventListener("click", flashClosed);
+        if(flash){
+            flash.addEventListener("click", flashClosed);
+        }
         //cvWrapper.addEventListener("click", popupManage);
         //cvImg.addEventListener("click", popupManage);
     };
