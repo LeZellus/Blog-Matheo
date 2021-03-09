@@ -27,7 +27,7 @@
 </head>
 <body>
 {% for message in app.flashes('success') %}
-    <div class="notification success">
+    <div class="notification success" id="flash">
         <div class="f ai-c notification-message">
             ✅
             <span>Bravo !</span>
@@ -37,7 +37,7 @@
     </div>
 {% endfor %}
 {% for message in app.flashes('error') %}
-    <div class="notification error">
+    <div class="notification error" id="flash">
         <div class="f ai-c notification-message">
             ❌
             <span>Erreur ! </span>

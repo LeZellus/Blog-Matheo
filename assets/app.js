@@ -15,6 +15,7 @@ import "./sass/application.scss";
 document.addEventListener("DOMContentLoaded", function () {
     let articleContent = document.getElementsByClassName("article-content-input");
     let menu = document.getElementById("nav-burger");
+    let flash = document.getElementById("flash");
     let navLinks = document.getElementById("nav-link-items");
 
     //let cvWrapper = document.getElementById("cv-wrapper");
@@ -44,10 +45,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /*******************************************************/
+    /************************FLASH**************************/
+    /*******************************************************/
+    let flashClosed = function () {
+        flash.style.display = "none";
+    };
+
+    /*******************************************************/
     /*********************BURGER MENU***********************/
     /*******************************************************/
-
-    //Toggle menu function
     let toggle = function () {
         navLinks.classList.toggle("show");
         menu.classList.toggle("clicked");
@@ -58,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
     /*******************************************************/
     window.onload = function () {
         menu.addEventListener("click", toggle);
+        flash.addEventListener("click", flashClosed);
         //cvWrapper.addEventListener("click", popupManage);
         //cvImg.addEventListener("click", popupManage);
     };
@@ -65,8 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
     /*******************************************************/
     /**********************TinyCME**************************/
     /*******************************************************/
-
-    //Init TinyCME only if class exist on the DOM to block error
     if (articleContent.length > 0) {
         tinymce.init({
             selector: ".article-content-input",
