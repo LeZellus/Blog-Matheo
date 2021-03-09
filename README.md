@@ -35,6 +35,9 @@ Le thème CSS à été fait à la main avec la technologie **SCSS** proposée pa
 
 ## Installation
 
+### Création du projet
+Clonez le repository hébergé sur Github via [cette adresse](https://github.com/LeZellus/Blog-Matheo).
+
 ### Création de l'environnement
 Créez un fichier .env.local à la racine de votre projet, puis copiez coller à l'intérieur le contenu du fichier .env déjà présent.
 Une fois ceci fait, remplacez les valeurs du MAILER_DNS par votre smtp pour l'envoi des mails. Plus d'informations à [cette adresse](https://symfony.com/doc/current/mailer.html#transport-setup).
@@ -48,9 +51,6 @@ Mettez-vous également en environnement de développement afin d'installer toute
 ```text
 APP_ENV=dev
 ```
-
-### Création du projet
-Clonez le repository hébergé sur Github via [cette adresse](https://github.com/LeZellus/Blog-Matheo).
 
 ### Installer les dépendances
 Après avoir installer **composer**, ouvrez votre terminal et executez la commande suivante à la racine du projet :
