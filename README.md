@@ -25,7 +25,7 @@ Mot de passe : **visiteur**
 
 [Application Démonstration](http://xipelgames.tech)
 
-# Informations
+## Informations
 
 Le modèle MVC & Framework de ce projet est fortement inspiré du cours de Fabien Potencier, de WhatZeWeb ainsi que de Lior Chamla.
 
