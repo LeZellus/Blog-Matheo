@@ -11,11 +11,15 @@ use App\Repository\ArticleRepository;
 use App\Repository\CommentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class BlogController extends AbstractController
 {
+    /**
+     * @return Response
+     */
     public function index(): Response
     {
         $articles = $this->getDoctrine()->getRepository(Article::class)->findBy(
@@ -28,6 +32,10 @@ class BlogController extends AbstractController
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @return Response
+     */
     public function add(Request $request): Response
     {
         $article = new Article();
@@ -43,7 +51,7 @@ class BlogController extends AbstractController
 
                 try {
                     $file->move(
-                        $this->getParameter('images_directory'), // Le dossier dans le quel le fichier va etre charger
+                        $this->getParameter('images_directory'), /* The path where the file will be stock */
                         $fileName
                     );
                 } catch (FileException $e) {
@@ -57,9 +65,9 @@ class BlogController extends AbstractController
                 $article->setPublishedAt(new \DateTime());
             }
 
-            $em = $this->getDoctrine()->getManager(); // On récupère l'entity manager
-            $em->persist($article); // On confie notre entité à l'entity manager (on persist l'entité)
-            $em->flush(); // On execute la requete
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($article);
+            $em->flush();
 
             $this->addFlash('success', 'L\'article a bien été créé');
             return $this->redirectToRoute("app_admin");
@@ -70,6 +78,11 @@ class BlogController extends AbstractController
         ]);
     }
 
+    /**
+     * @param Article $article
+     * @param Request $request
+     * @return Response
+     */
     public function edit(Article $article, Request $request): Response
     {
         $oldPicture = $article->getThumb();
@@ -117,6 +130,11 @@ class BlogController extends AbstractController
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @param Article $article
+     * @return Response
+     */
     public function show(Request $request, Article $article): Response
     {
         $user = $this->getUser();
@@ -148,16 +166,25 @@ class BlogController extends AbstractController
         ]);
     }
 
-    public function remove(Article $article): \Symfony\Component\HttpFoundation\RedirectResponse
+    /**
+     * @param Article $article
+     * @return RedirectResponse
+     */
+    public function remove(Article $article): RedirectResponse
     {
         $em = $this->getDoctrine()->getManager();
         $em->remove($article);
         $em->flush();
 
         $this->addFlash('success', 'L\'article a bien été supprimé');
-        return $this->redirectToRoute('admin');
+        return $this->redirectToRoute('app_admin');
     }
 
+    /**
+     * @param ArticleRepository $articleRepository
+     * @param CommentRepository $commentRepository
+     * @return Response
+     */
     public function admin(ArticleRepository $articleRepository, CommentRepository $commentRepository): Response
     {
         $articles = $articleRepository->findBy(

@@ -7,11 +7,18 @@ use App\Form\ContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 
 class HomeController extends AbstractController
 {
+    /**
+     * @param Request $request
+     * @param MailerInterface $mailer
+     * @return Response
+     * @throws TransportExceptionInterface
+     */
     public function index(Request $request, MailerInterface $mailer): Response
     {
         $form = $this->createForm(ContactType::class);
@@ -24,7 +31,7 @@ class HomeController extends AbstractController
             $message = (new Email())
                 ->from($contactFormData['email'])
                 ->to('matheo.zeller@gmail.com')
-                ->subject('Vous avez reçu un mail d\'un visiteur du blog')
+                ->subject('Vous avez reçu un mail de ' . $contactFormData['fullName'] . ', visiteur du blog')
                 ->text('Destinataire : ' . $contactFormData['email'] . \PHP_EOL .
                     $contactFormData['message'],
                     'text/plain');

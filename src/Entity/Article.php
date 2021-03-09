@@ -52,7 +52,7 @@ class Article
     private $isPublished;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Category", inversedBy="articles")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Category", inversedBy="articles", cascade={"remove"})
      */
     private $categories;
 
@@ -62,7 +62,7 @@ class Article
     private $chapo;
 
     /**
-     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="article")
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="article", cascade={"remove"})
      */
     private $comments;
 

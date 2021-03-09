@@ -9,6 +9,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CommentsController extends AbstractController
 {
+    /**
+     * @return Response
+     */
     public function index(): Response
     {
         return $this->render('comments/index.html.twig', [
@@ -16,6 +19,10 @@ class CommentsController extends AbstractController
         ]);
     }
 
+    /**
+     * @param Comment $comment
+     * @return RedirectResponse
+     */
     public function validComment(Comment $comment): RedirectResponse
     {
         $comment->setIsValid(1);
@@ -27,6 +34,10 @@ class CommentsController extends AbstractController
         return $this->redirectToRoute('app_admin');
     }
 
+    /**
+     * @param Comment $comment
+     * @return RedirectResponse
+     */
     public function removeComment(Comment $comment): RedirectResponse
     {
         $entityManager = $this->getDoctrine()->getManager();

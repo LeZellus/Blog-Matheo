@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProfilController extends AbstractController
 {
     /**
-     * @Route("/profil", name="profil")
+     * @return Response
      */
     public function index(): Response
     {
@@ -19,8 +19,6 @@ class ProfilController extends AbstractController
             return $this->redirectToRoute("app_login");
         }
 
-        return $this->render('profil/index.html.twig', [
-            'controller_name' => 'ProfilController',
-        ]);
+        return $this->render('profil/index.html.twig');
     }
 }
