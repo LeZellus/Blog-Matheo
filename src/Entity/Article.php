@@ -21,18 +21,30 @@ class Article
     private $id;
 
     /**
+     * @Assert\NotBlank(message="Veuillez chosir une image")
      * @ORM\Column(type="string", length=255)
      */
     private $thumb;
 
     /**
-     * @Assert\NotBlank
+     * @Assert\NotBlank(message="Ce champ ne doit pas être vide")
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *      min = 5,
+     *      max = 50,
+     *      minMessage = "Le titre doit contenir {{ limit }} caractères minimum",
+     *      maxMessage = "Le titre doit contenir {{ limit }} caractères maximum"
+     * )
      */
     private $title;
 
     /**
+     * @Assert\NotBlank(message="Ce champ ne doit pas être vide")
      * @ORM\Column(type="text")
+     * @Assert\Length(
+     *      min = 10,
+     *      minMessage = "Le contenu doit contenir {{ limit }} caractères minimum"
+     * )
      */
     private $content;
 
@@ -57,7 +69,14 @@ class Article
     private $categories;
 
     /**
+     * @Assert\NotBlank(message="Ce champ ne doit pas être vide")
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *      min = 10,
+     *      max = 30,
+     *      minMessage = "La description doit contenir {{ limit }} caractères minimum",
+     *      minMessage = "La description doit contenir {{ limit }} caractères maximum"
+     * )
      */
     private $chapo;
 

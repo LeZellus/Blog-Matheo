@@ -24,8 +24,12 @@ class ArticleType extends AbstractType
                 'data_class' => null,
                 'empty_data' => ''
             ])
-            ->add('title', TextType::class)
-            ->add('chapo', TextType::class)
+            ->add('title', TextType::class, [
+                'required' => false,
+            ])
+            ->add('chapo', TextType::class, [
+                'required' => false,
+            ])
             ->add('content', TextareaType::class, [
                 'required' => false,
             ])

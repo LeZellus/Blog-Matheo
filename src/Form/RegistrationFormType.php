@@ -20,8 +20,12 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', EmailType::class)
-            ->add('firstname', TextType::class)
+            ->add('email', EmailType::class, [
+                'required' => false,
+            ])
+            ->add('firstname', TextType::class, [
+                'required' => false,
+            ])
             ->add('lastname', TextType::class)
             ->add('pseudo', TextType::class, [
                 'constraints' => [
@@ -46,8 +50,7 @@ class RegistrationFormType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

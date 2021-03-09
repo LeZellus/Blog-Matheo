@@ -6,6 +6,7 @@ use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -21,7 +22,10 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=180, unique=true)
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\Email(
+     *     message = "l\'email '{{ value }}' n'est pas un format valide"
+     * )
      */
     private $email;
 
@@ -47,6 +51,7 @@ class User implements UserInterface
     private $lastname;
 
     /**
+     * @Assert\NotBlank(message="Ce champ ne doit pas être vide")
      * @ORM\Column(type="string", length=255)
      */
     private $firstname;

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CommentRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=CommentRepository::class)
@@ -28,6 +29,7 @@ class Comment
     private $createdAt;
 
     /**
+     * @Assert\NotBlank(message="Ce champ ne doit pas être vide")
      * @ORM\Column(type="string", length=255)
      */
     private $content;
