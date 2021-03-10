@@ -18,9 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let flash = document.getElementById("flash");
     let navLinks = document.getElementById("nav-link-items");
 
-    //let cvWrapper = document.getElementById("cv-wrapper");
-    let cvImg = document.getElementById("cv-img");
-
     /*******************************************************/
     /**********************Popup Img************************/
     /*******************************************************/
@@ -67,8 +64,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if(flash){
             flash.addEventListener("click", flashClosed);
         }
-        //cvWrapper.addEventListener("click", popupManage);
-        //cvImg.addEventListener("click", popupManage);
     };
 
     /*******************************************************/
