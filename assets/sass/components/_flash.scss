@@ -2,15 +2,17 @@
   position: fixed;
   left: -200rem;
   bottom: 2rem;
-  padding: 1rem 2rem;
-  border-radius: 1rem;
+  padding: 2rem 3rem;
+  border-radius: 1.5rem;
+  border: 1px solid $clr-border;
   font-weight: 400;
   text-shadow: $text-shadow;
   animation: 1s fromLeft forwards;
+  background-color: $palette-snow;
   transition: 0.5s;
   display: flex;
   justify-content: center;
-  z-index: 10000;
+  z-index: 100000;
   align-items: center;
 
   &-message {
@@ -32,26 +34,16 @@
 
   &.success {
     border: 1px solid rgba(36, 241, 6, 0.46);
-    background-color: rgba(7, 149, 66, 0.12);
 
-    &:hover {
-      background-color: rgba(7, 149, 66, 0.35);
-    }
-
-    &:before {
+    &::before {
       color: rgba(36, 241, 6, 0.46);
     }
   }
 
   &.error {
     border: 1px solid rgba(241, 6, 6, 0.81);
-    background-color: rgba(220, 17, 1, 0.16);
 
-    &:hover {
-      background-color: rgba(220, 17, 1, 0.33);
-    }
-
-    &:before {
+    &::before {
       color: rgba(241, 6, 6, 0.81);
     }
   }
@@ -60,16 +52,12 @@
     border: 1px solid rgba(241, 142, 6, 0.81);
     background-color: rgba(220, 128, 1, 0.16);
 
-    &:hover {
-      background-color: rgba(220, 128, 1, 0.33);
-    }
-
-    &:before {
+    &::before {
       color: rgba(241, 142, 6, 0.81);
     }
   }
 
-  &:before {
+  &::before {
     content: '';
     position: absolute;
     width: 0;
