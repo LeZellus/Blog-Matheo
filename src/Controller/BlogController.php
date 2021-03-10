@@ -113,6 +113,7 @@ class BlogController extends AbstractController
 
                 $article->setThumb($fileName);
             } else {
+                dump("je suis passé ici");
                 $article->setThumb($oldPicture);
             }
 
@@ -123,6 +124,9 @@ class BlogController extends AbstractController
             $this->addFlash('success', 'L\'article a bien été modifié');
             return $this->redirectToRoute("app_admin");
         }
+
+        dump($article);
+        dump($oldPicture);
 
         return $this->render('blog/edit.html.twig', [
             'article' => $article,

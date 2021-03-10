@@ -21,7 +21,6 @@ class Article
     private $id;
 
     /**
-     * @Assert\NotBlank(message="Veuillez chosir une image")
      * @ORM\Column(type="string", length=255)
      */
     private $thumb;
@@ -73,7 +72,7 @@ class Article
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(
      *      min = 10,
-     *      max = 30,
+     *      max = 80,
      *      minMessage = "La description doit contenir {{ limit }} caractères minimum",
      *      minMessage = "La description doit contenir {{ limit }} caractères maximum"
      * )
